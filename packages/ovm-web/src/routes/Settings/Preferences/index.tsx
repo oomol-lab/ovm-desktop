@@ -2,9 +2,8 @@ import styles from "./Preferences.module.scss";
 
 import type { RadioChangeEvent } from "antd";
 
-import { Divider, Radio, Select, Skeleton, Switch } from "antd";
+import { Radio, Skeleton } from "antd";
 import { useEffect, useState } from "react";
-import { useTranslate } from "val-i18n-react";
 import { useAppContext } from "~/hooks";
 
 import autoSVG from "../images/auto.svg";
@@ -67,8 +66,6 @@ export interface AppContext {
 }
 
 export const Preferences = () => {
-  const t = useTranslate();
-
   const { getOoPreferences } = useAppContext();
   const [preferencesLoading, setPreferencesLoading] = useState<boolean>(true);
   const [preferencesData, setPreferencesData] =
@@ -91,9 +88,6 @@ export const Preferences = () => {
     };
   }, []);
 
-  const handleChange = (value: string) => {
-    console.log(`selected ${value}`);
-  };
   const onLanguageChange = (e: RadioChangeEvent) => {
     console.log("radio checked", e.target.value);
     setValue(e.target.value as LanguageEnum);
@@ -104,81 +98,10 @@ export const Preferences = () => {
   };
 
   if (!preferencesLoading && preferencesData) {
-    const messageData = [
-      {
-        key: "follow",
-        title: t("settings.follow"),
-        description: t("settings.follows-description"),
-        operation: preferencesData.notification.follow,
-      },
-      {
-        key: "like",
-        title: t("settings.like"),
-        description: t("settings.like-description"),
-        operation: preferencesData.notification.like,
-      },
-      {
-        key: "at",
-        title: t("settings.at"),
-        description: t("settings.at-description"),
-        operation: preferencesData.notification.at,
-      },
-      {
-        key: "pending",
-        title: t("settings.pending"),
-        description: t("settings.pending-description"),
-        operation: preferencesData.notification.pending,
-      },
-      {
-        key: "system",
-        title: t("settings.system"),
-        description: t("settings.system-description"),
-        operation: preferencesData.notification.system,
-      },
-      {
-        key: "other",
-        title: t("settings.other"),
-        description: t("settings.other-description"),
-        operation: preferencesData.notification.other,
-      },
-    ];
-    const messageNode = messageData.map(item => {
-      return (
-        <div className={styles["preference-box"]} key={item.key}>
-          <div className={styles.left}>
-            <div className={styles.up}>{item.title}</div>
-            <div className={styles.down}>{item.description}</div>
-          </div>
-          <div>
-            <Select
-              defaultValue={item.operation}
-              style={{ width: 140 }}
-              onChange={handleChange}
-              options={[
-                {
-                  value: MessageOperationEnum.MessageAndMail,
-                  label: t("settings.notify-email"),
-                },
-                {
-                  value: MessageOperationEnum.MessageOnly,
-                  label: t("settings.notify"),
-                },
-                {
-                  value: MessageOperationEnum.NotAccepting,
-                  label: t("settings.disable"),
-                },
-              ]}
-            />
-          </div>
-        </div>
-      );
-    });
     return (
       <div className={styles["preference-container"]}>
         <div className={styles.section}>
-          <div className={styles["section-title"]}>
-            {t("settings.language")}
-          </div>
+          <div className={styles["section-title"]}>Language</div>
           <Radio.Group
             onChange={onLanguageChange}
             defaultValue={preferencesData.language}
@@ -189,74 +112,41 @@ export const Preferences = () => {
           </Radio.Group>
         </div>
         <div className={styles.section}>
-          <div className={styles["section-title"]}>{t("settings.theme")}</div>
+          <div className={styles["section-title"]}>Theme</div>
           <div className={styles["appearance-picker-container"]}>
             <Radio.Group name="theme" value={theme} onChange={onThemeChange}>
               <Radio value={"dark"}>
                 <div className={styles["appearance-picker-option"]}>
                   <img src={darkSVG} />
-                  <span>{t("settings.theme-dark")}</span>
+                  <span>Dark</span>
                 </div>
               </Radio>
               <Radio value={"light"}>
                 <div className={styles["appearance-picker-option"]}>
                   <img src={lightSVG} />
-                  <span>{t("settings.theme-light")}</span>
+                  <span>Light</span>
                 </div>
               </Radio>
               <Radio value={"auto"}>
                 <div className={styles["appearance-picker-option"]}>
                   <img src={autoSVG} />
-                  <span>{t("settings.follows-system")}</span>
+                  <span>System</span>
                 </div>
               </Radio>
             </Radio.Group>
           </div>
         </div>
-        <Divider />
-        <div className={styles["section-title"]}>
-          {t("settings.reminder-settings")}
-        </div>
-        <div className={styles["preference-box"]}>
-          <div className={styles.left}>
-            <div className={styles.up}>{t("settings.dynamic-reminders")}</div>
-            <div className={styles.down}>
-              {t("settings.dynamic-reminders-description")}
-            </div>
-          </div>
-          <div>
-            <Switch defaultChecked={preferencesData.reminder.dynamic} />
-          </div>
-        </div>
-        <div className={styles["preference-box"]}>
-          <div className={styles.left}>
-            <div className={styles.up}>{t("settings.blue-dot")}</div>
-            <div className={styles.down}>
-              {t("settings.blue-dot-description")}
-            </div>
-          </div>
-          <div>
-            <Switch defaultChecked={preferencesData.reminder.blueDot} />
-          </div>
-        </div>
-        <Divider />
-        <div className={styles["section-title"]}>
-          {t("settings.notification-settings")}
-        </div>
-        {messageNode}
       </div>
     );
   } else {
     return (
       <div className={styles["preference-container"]}>
         <div className={styles.section}>
-          <div className={styles["section-title"]}>
-            {t("settings.language")}
-          </div>
+          <div className={styles["section-title"]}>Language</div>
           <Skeleton.Button active size="small" style={{ width: 140 }} />
         </div>
         <div className={styles.section}>
-          <div className={styles["section-title"]}>{t("settings.theme")}</div>
+          <div className={styles["section-title"]}>Theme</div>
           <div className={styles["appearance-picker-container"]}>
             <Skeleton.Button
               active
@@ -275,47 +165,6 @@ export const Preferences = () => {
             />
           </div>
         </div>
-        <Divider />
-        <div className={styles["section-title"]}>
-          {t("settings.reminder-settings")}
-        </div>
-        <div className={styles["preference-box"]}>
-          <div className={styles.left}>
-            <Skeleton active paragraph={{ rows: 1 }} />
-          </div>
-          <div>
-            <Skeleton.Button active size="small" style={{ width: 48 }} />
-          </div>
-        </div>
-        <div className={styles["preference-box"]}>
-          <div className={styles.left}>
-            <Skeleton active paragraph={{ rows: 1 }} />
-          </div>
-          <div>
-            <Skeleton.Button active size="small" style={{ width: 48 }} />
-          </div>
-        </div>
-        <Divider />
-        <div className={styles["section-title"]}>
-          {t("settings.notification-settings")}
-        </div>
-        {Array.from({
-          length: 6,
-        }).map((_, index) => (
-          <div className={styles["preference-box"]} key={index}>
-            <div className={styles.left}>
-              <Skeleton.Button
-                active
-                style={{ marginBottom: 8, width: 64 }}
-                size="small"
-              />
-              <Skeleton.Button style={{ width: 200 }} active size="small" />
-            </div>
-            <div>
-              <Skeleton.Button active style={{ width: 120 }} />
-            </div>
-          </div>
-        ))}
       </div>
     );
   }

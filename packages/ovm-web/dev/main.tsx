@@ -6,7 +6,6 @@ import type { ReadonlyVal } from "value-enhancer";
 
 import { ConnectionClient } from "@oomol/connection";
 import { WebClientAdapter } from "@oomol/connection-websocket-adapter/client";
-import { SigninService, WindowService } from "../../ovm-service/src/common";
 import { GUI } from "lil-gui";
 import { createRoot } from "react-dom/client";
 import { from, unwrap, val } from "value-enhancer";
@@ -14,25 +13,9 @@ import { from, unwrap, val } from "value-enhancer";
 import { StudioHome, Appearance, OS } from "../src/main";
 import { ControlPanel } from "./components/ControlPanel";
 import { port } from "./constants";
-import { accountInfoData } from "./fake-data/accountInfoData";
-import { billRecordsData } from "./fake-data/billRecordsData";
-import { invoicesData } from "./fake-data/invoicesData";
-import { linkAccountData } from "./fake-data/linkAccountData";
-import { loginDeviceData } from "./fake-data/loginDeviceData";
-import { membersInfoData } from "./fake-data/membersInfoData";
-import { notificationsData } from "./fake-data/notificationsData";
-import { paymentHistoryData } from "./fake-data/paymentHistoryData";
 import { preferencesData } from "./fake-data/preferencesData";
-import { pricingData } from "./fake-data/pricingData";
-import { pricingTitleData } from "./fake-data/pricingTitleData";
-import { profileData } from "./fake-data/profileData";
-import { projectsData } from "./fake-data/projectsData";
-import { safetyRecordData } from "./fake-data/safetyRecordData";
-import { secretDetailData } from "./fake-data/secretDetailData";
-import { secretsData } from "./fake-data/secretsData";
-import { secretTemplatesData } from "./fake-data/secretTemplatesData";
-import { secretTitleData } from "./fake-data/secretTitleData";
 import { upgradeData } from "./fake-data/upgradeData";
+import { SigninService, WindowService } from "../../ovm-service/src/common";
 
 const gui = new GUI({ autoPlace: false });
 
@@ -66,82 +49,15 @@ gui.add(os$, "value", [OS.Mac, OS.Windows, OS.Linux]).name("os");
 const appContext: AppContext = {
   os$,
   darkMode$,
-  getOoProjects: async (page?: number, count?: number) => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return projectsData(page, count);
-  },
-  getOoSecrets: async (page?: number, count?: number) => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return secretsData(page, count);
-  },
-  getOoBillRecords: async (page?: number, count?: number) => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return billRecordsData(page, count);
-  },
-  getOoPaymentHistory: async (page?: number, count?: number) => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return paymentHistoryData(page, count);
-  },
-  getOoInvoices: async (page?: number, count?: number) => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return invoicesData(page, count);
-  },
-  getOoNotifications: async (page?: number, count?: number) => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return notificationsData(page, count);
-  },
-  getOoDeviceInfo: async (page?: number, count?: number) => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return loginDeviceData(page, count);
-  },
-  getOoSafetyRecord: async (page?: number, count?: number) => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return safetyRecordData(page, count);
-  },
-  getOoAccountInfo: async () => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return accountInfoData();
-  },
-  getOoLinkAccounts: async (page?: number, count?: number) => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return linkAccountData(page, count);
-  },
-  getOoSecretTable: async (page?: number, count?: number) => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return secretDetailData(page, count);
-  },
-  getOoSecretTitle: async () => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return secretTitleData();
-  },
-  getOoMembersInfo: async () => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return membersInfoData();
-  },
   getOoUpgrade: async () => {
     await new Promise(resolve => setTimeout(resolve, 2000));
     return upgradeData();
-  },
-  getOoPricing: async () => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return pricingData();
-  },
-  getOoPricingTitle: async () => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return pricingTitleData();
-  },
-  getOoProfile: async () => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return profileData();
   },
   getOoPreferences: async () => {
     await new Promise(resolve => setTimeout(resolve, 2000));
     return preferencesData();
   },
-  getOoSecretTemplates: async (page?: number, count?: number) => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return secretTemplatesData(page, count);
-  },
+
   signinService,
   windowService,
 };

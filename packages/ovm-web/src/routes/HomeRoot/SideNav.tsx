@@ -25,37 +25,22 @@ export const SideNav = () => {
       icon: ReactNode;
     }> = [
       {
-        label: t("projects.title"),
+        label: "Projects",
         key: RoutePath.Projects,
         icon: <NodeIndexOutlined />,
       },
-      // {
-      //   label: t("flows.title"),
-      //   key: RoutePath.Flows,
-      //   icon: <NodeIndexOutlined />,
-      // },
-      // {
-      //   label: t("blocks.title"),
-      //   key: RoutePath.Blocks,
-      //   icon: <CodeOutlined />,
-      // },
       {
-        label: t("community.title"),
+        label: "Community",
         key: RoutePath.Community,
         icon: <GlobalOutlined />,
       },
       {
-        label: t("secrets.title"),
+        label: "Secrets",
         key: RoutePath.Secrets,
         icon: <KeyOutlined />,
       },
-      // {
-      //   label: t("extensions.title"),
-      //   key: RoutePath.Extensions,
-      //   icon: <BuildOutlined />,
-      // },
       {
-        label: t("settings.title"),
+        label: "Settings",
         key: RoutePath.Settings,
         icon: <SettingOutlined />,
       },

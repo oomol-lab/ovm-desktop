@@ -5,7 +5,6 @@ import type { CheckboxChangeEvent } from "antd/es/checkbox";
 import { SyncOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Skeleton } from "antd";
 import { useEffect, useState } from "react";
-import { useTranslate } from "val-i18n-react";
 import { useAppContext } from "~/hooks";
 
 import logo from "../images/logo.svg";
@@ -22,7 +21,6 @@ export interface AppContext {
   getOoUpgrade: () => Promise<UpgradeDataType>;
 }
 export const Upgrade = () => {
-  const t = useTranslate();
   const { getOoUpgrade } = useAppContext();
   const onChange = (e: CheckboxChangeEvent) => {
     console.log(`checked = ${e.target.checked}`);
@@ -54,40 +52,40 @@ export const Upgrade = () => {
         <div className={styles["about-name"]}>OOMOL STUDIO</div>
         <div className={styles["about-update"]}>
           <div className={styles.version}>
-            <span>{t("settings.version-state")}</span>: {upgradeData.version}
+            <span>Version</span>: {upgradeData.version}
           </div>
           <Button type="primary" size="small" icon={<SyncOutlined />}>
-            <span>{t("settings.check-update")}</span>
+            <span>Check Update</span>
           </Button>
         </div>
         <div className={styles["installation-update"]}>
           <Checkbox checked onChange={onChange}>
-            {t("settings.auto-update")}
+            Auto Update
           </Checkbox>
         </div>
         <div className={styles.title}>
-          <span>{t("settings.version-about")}</span> OOMOL STUDIO
+          <span>Version About</span> OOMOL STUDIO
           <span> {upgradeData.version}</span>
         </div>
         <div className={styles.link}>
           <div>
             <a target="_blank" href={upgradeData.updateLog}>
-              {t("settings.update-log")}
+              Update Log
             </a>
           </div>
           <div>
             <a target="_blank" href={upgradeData.userAgreement}>
-              {t("settings.user-agreement")}
+              Agreement
             </a>
           </div>
           <div>
             <a target="_blank" href={upgradeData.privacyProtection}>
-              {t("settings.privacy-protection")}
+              Privacy
             </a>
           </div>
           <div>
             <a target="_blank" href={upgradeData.openSource}>
-              {t("settings.open-source")}
+              Open Source
             </a>
           </div>
         </div>

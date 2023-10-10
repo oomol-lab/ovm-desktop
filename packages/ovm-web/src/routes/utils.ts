@@ -1,5 +1,5 @@
-import type { ConnectionClientService } from "@oomol/connection";
 import type { WindowService } from "../../../ovm-service/src/common";
+import type { ConnectionClientService } from "@oomol/connection";
 
 import { PageSize, RoutePath } from "./constants";
 

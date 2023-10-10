@@ -36,7 +36,7 @@ importers:
         specifier: ^2.8.7
         version: 2.8.8
 
-  packages/electron-app:
+  packages/ovm-desktop:
     dependencies:
       '@electron-toolkit/preload':
         specifier: ^2.0.0
@@ -46,10 +46,10 @@ importers:
         version: 1.0.2(electron@24.8.3)
       '@oomol-lab/ovm-service':
         specifier: workspace:*
-        version: link:../home-service
+        version: link:../ovm-service
       '@oomol-lab/ovm-web':
         specifier: workspace:*
-        version: link:../studio-home
+        version: link:../ovm-web
       '@oomol/connection':
         specifier: ^0.1.0
         version: 0.1.0(@oomol/token@0.0.5)
@@ -103,7 +103,7 @@ importers:
         specifier: ^4.4.2
         version: 4.4.9(@types/node@18.17.16)(sass@1.67.0)
 
-  packages/home-service:
+  packages/ovm-service:
     devDependencies:
       '@oomol/connection':
         specifier: ^0.1.0
@@ -118,11 +118,11 @@ importers:
         specifier: ^7.2.0
         version: 7.2.0(typescript@5.2.2)
 
-  packages/studio-home:
+  packages/ovm-web:
     dependencies:
       '@oomol-lab/ovm-service':
         specifier: workspace:*
-        version: link:../home-service
+        version: link:../ovm-service
       '@oomol/connection':
         specifier: ^0.1.0
         version: 0.1.0(@oomol/token@0.0.5)

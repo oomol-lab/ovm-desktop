@@ -1,19 +1,10 @@
-import type { AppContext as ProjectsContext } from "./Projects";
-import type { AppContext as SecretsContext } from "./Secrets";
-import type { AppContext as AccountContext } from "./Settings/Account";
-import type { AppContext as BillContext } from "./Settings/Bill";
-import type { AppContext as MembersInfoContext } from "./Settings/MembersInfo";
 import type { AppContext as PreferencesContext } from "./Settings/Preferences";
-import type { AppContext as ProfileContext } from "./Settings/Profile";
-import type { AppContext as LoginDeviceContext } from "./Settings/SecurityLog";
 import type { AppContext as UpgradeContext } from "./Settings/Upgrade";
-import type { AppContext as PricingCardContext } from "../components/PricingCard";
-import type { AppContext as NotificationContext } from "../components/UserNotification";
-import type { ConnectionClientService } from "@oomol/connection";
 import type {
   WindowService,
   SigninService,
 } from "../../../ovm-service/src/common";
+import type { ConnectionClientService } from "@oomol/connection";
 import type { ReadonlyVal } from "value-enhancer";
 import type { OSLiteral } from "~/constants";
 
@@ -31,23 +22,13 @@ import { RoutePath } from "./constants";
 import { HomeRoot } from "./HomeRoot";
 import { Projects } from "./Projects";
 import { ConfigurationEnum, Settings } from "./Settings";
-import { Workflow } from "./Workflow";
 
 export type AppContext = {
   os$: ReadonlyVal<OSLiteral>;
   darkMode$: ReadonlyVal<boolean>;
   windowService?: ConnectionClientService<WindowService>;
   signinService: ConnectionClientService<SigninService>;
-} & ProjectsContext &
-  SecretsContext &
-  BillContext &
-  NotificationContext &
-  LoginDeviceContext &
-  AccountContext &
-  MembersInfoContext &
-  UpgradeContext &
-  PricingCardContext &
-  ProfileContext &
+} & UpgradeContext &
   PreferencesContext;
 
 const createRouter = () =>
@@ -72,14 +53,6 @@ const createRouter = () =>
               element: <Projects />,
             },
             {
-              path: RoutePath.Flows,
-              element: <Workflow />,
-            },
-            {
-              path: RoutePath.Blocks,
-              element: <div />,
-            },
-            {
               path: RoutePath.SettingsMenu,
               element: <Settings />,
             },
@@ -88,7 +61,7 @@ const createRouter = () =>
               element: (
                 <Navigate
                   to={generatePath(RoutePath.SettingsMenu, {
-                    menuKey: ConfigurationEnum.Profile,
+                    menuKey: ConfigurationEnum.Preferences,
                   })}
                   replace
                 />
@@ -101,10 +74,6 @@ const createRouter = () =>
             {
               path: RoutePath.Secrets,
               element: <Secrets />,
-            },
-            {
-              path: RoutePath.Extensions,
-              element: <div />,
             },
           ],
         },

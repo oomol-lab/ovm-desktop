@@ -3,15 +3,11 @@ import styles from "./HomeRoot.module.scss";
 import type { RouteOutletContext } from "../typings";
 import type { Val } from "value-enhancer";
 
-import { DollarOutlined } from "@ant-design/icons";
+import { GithubOutlined } from "@ant-design/icons";
 import { Button, Modal } from "antd";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import { useTranslate } from "val-i18n-react";
 import { val } from "value-enhancer";
-import { PricingCard } from "~/components/PricingCard";
-import { UserAvatar } from "~/components/UserAvatar";
-import { UserNotification } from "~/components/UserNotification";
 import { OS } from "~/constants";
 import { useOS } from "~/hooks";
 
@@ -20,7 +16,6 @@ import { SideNav } from "./SideNav";
 
 export const HomeRoot = () => {
   const os = useOS();
-  const t = useTranslate();
   const [titleBar$] = useState<Val<React.ReactNode>>(val);
   const [modalOpen, setModalOpen] = useState(false);
   const outletContext: RouteOutletContext = titleBar$.set;
@@ -35,10 +30,7 @@ export const HomeRoot = () => {
         {os !== OS.Mac && (
           <div className={styles["sidebar-header"]}>
             <div className={styles["sidebar-header-box"]}>
-              <div className={styles.left}>
-                <UserAvatar os={os} src="https://placekitten.com/64/64" />
-              </div>
-              <UserNotification os={os} />
+              <div className={styles.left}></div>
             </div>
           </div>
         )}
@@ -53,8 +45,8 @@ export const HomeRoot = () => {
               type="primary"
               ghost
             >
-              <DollarOutlined />
-              {t("home.vip")}
+              <GithubOutlined />
+              github
             </Button>
           </div>
           <Modal
@@ -64,9 +56,7 @@ export const HomeRoot = () => {
             open={modalOpen}
             onOk={() => setModalOpen(false)}
             onCancel={() => setModalOpen(false)}
-          >
-            <PricingCard />
-          </Modal>
+          ></Modal>
         </div>
       </div>
       <div className={styles.main}>

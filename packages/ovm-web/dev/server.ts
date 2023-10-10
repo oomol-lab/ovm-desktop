@@ -1,9 +1,9 @@
 import { ConnectionServer } from "@oomol/connection";
 import { WebSocketServerAdapter } from "@oomol/connection-websocket-adapter/server";
-import { SigninServiceImpl } from "../../ovm-service/src/node";
 import { WebSocketServer } from "ws";
 
 import { port } from "./constants";
+import { SigninServiceImpl } from "../../ovm-service/src/node";
 
 // 后端配置 connection server
 const wss = new WebSocketServer({ port });
