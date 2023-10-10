@@ -1,0 +1,33 @@
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--inner-bg-color);
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  .left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .icon {
+      margin-right: 12px;
+      color: green;
+    }
+    .text {
+      font-size: 14px;
+      .name {
+        font-weight: 600;
+      }
+
+      .account {
+        opacity: 0.6;
+        margin-top: 4px;
+      }
+    }
+  }
+  .edit {
+    font-size: 12px;
+  }
+}

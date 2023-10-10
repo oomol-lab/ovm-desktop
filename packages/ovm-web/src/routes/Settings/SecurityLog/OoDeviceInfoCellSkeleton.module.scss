@@ -1,0 +1,27 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.card {
+  width: 100% !important;
+  height: 64px !important;
+  position: relative;
+  border-radius: 12px !important;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  border-radius: 20%;
+  background-color: #ffffff1a;
+}
+
+:global(.oomol-theme-light) .icon {
+  background: #ffffff87;
+}

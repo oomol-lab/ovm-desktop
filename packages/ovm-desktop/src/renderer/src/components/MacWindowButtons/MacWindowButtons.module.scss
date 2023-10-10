@@ -1,0 +1,101 @@
+.buttons {
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  z-index: 99999999;
+  height: 20px;
+  width: 51px;
+  user-select: none;
+
+  &:hover {
+    & > .close:before {
+      opacity: 1;
+    }
+
+    & > .close:after {
+      opacity: 1;
+    }
+  }
+}
+
+.close {
+  float: left;
+  $size: 10px;
+  height: $size;
+  width: $size;
+  border-radius: 50%;
+  margin-top: (20 - $size) * 0.5;
+  background: rgb(251, 73, 72);
+  border: solid 1px rgba(214, 46, 48, 0.15);
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 8px;
+    background: rgb(54, 0, 0);
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%) rotate(45deg);
+    opacity: 0;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 8px;
+    background: rgb(54, 0, 0);
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+.minimize {
+  @extend .close;
+  background: rgb(253, 178, 37);
+  margin-left: calc(51 / 3 / 2) * 1px;
+  border-color: rgba(213, 142, 27, 0.15);
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 8px;
+    background: rgb(134, 69, 2);
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  &:after {
+    display: none;
+  }
+}
+
+.maximize {
+  @extend .close;
+  float: right;
+  background: rgb(42, 200, 51);
+  border-color: rgba(30, 159, 32, 0.15);
+
+  &:before {
+    width: 6px;
+    height: 6px;
+    background: rgb(11, 84, 1);
+    transform: translateY(-50%) translateX(-50%);
+    border: solid rgb(42, 200, 51) 1px;
+    border-radius: 2px;
+  }
+
+  &:after {
+    width: 10px;
+    height: 2px;
+    background: rgb(42, 200, 51);
+    transform: translateY(-50%) translateX(-50%) rotate(45deg);
+  }
+}

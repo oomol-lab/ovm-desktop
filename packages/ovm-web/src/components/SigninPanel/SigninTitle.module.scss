@@ -1,0 +1,25 @@
+.container {
+  text-align: center;
+  > img {
+    -webkit-user-drag: none;
+  }
+}
+
+.signin-title-text {
+  margin-bottom: 4px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  color: #03060d;
+}
+
+.subtext {
+  margin-bottom: 48px;
+  font-size: 14px;
+  line-height: 24px;
+  color: #5d6066;
+}
+
+.signin-logo {
+  width: 70px;
+}

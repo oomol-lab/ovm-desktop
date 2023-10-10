@@ -1,0 +1,90 @@
+{
+  "name": "@oomol-lab/ovm-service",
+  "version": "0.0.1",
+  "description": "",
+  "repository": "oomol-lab/ovm-desktop",
+  "scripts": {
+    "prepublishOnly": "npx only-allow pnpm && pnpm run build",
+    "build": "tsup"
+  },
+  "types": "./src/common.ts",
+  "module": "./src/common.ts",
+  "type": "module",
+  "typesVersions": {
+    "*": {
+      "common": [
+        "./src/common.ts"
+      ],
+      "node": [
+        "./src/node.ts"
+      ]
+    }
+  },
+  "exports": {
+    ".": {
+      "types": "./src/common.ts",
+      "import": "./src/common.ts",
+      "require": "./src/common.ts"
+    },
+    "./node": {
+      "types": "./src/node.ts",
+      "import": "./src/node.ts",
+      "require": "./src/node.ts"
+    },
+    "./common": {
+      "types": "./src/common.ts",
+      "import": "./src/common.ts",
+      "require": "./src/common.ts"
+    }
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "main": "./dist/common.js",
+    "types": "./dist/common.d.ts",
+    "module": "./dist/common.js",
+    "exports": {
+      ".": {
+        "types": "./dist/common.d.ts",
+        "import": "./dist/common.js",
+        "require": "./dist/common.cjs"
+      },
+      "./common": {
+        "types": "./dist/common.d.ts",
+        "import": "./dist/common.js",
+        "require": "./dist/common.cjs"
+      },
+      "./node": {
+        "types": "./dist/node.d.ts",
+        "import": "./dist/node.js",
+        "require": "./dist/node.cjs"
+      }
+    },
+    "typesVersions": {
+      "*": {
+        "common": [
+          "./dist/common.d.ts"
+        ],
+        "node": [
+          "./dist/node.d.ts"
+        ]
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "@oomol/connection",
+    "electron"
+  ],
+  "peerDependencies": {
+    "@oomol/connection": "*",
+    "@oomol/token": "*"
+  },
+  "devDependencies": {
+    "@oomol/connection": "^0.1.0",
+    "@oomol/token": "^0.0.5",
+    "electron": "^24.6.2",
+    "tsup": "^7.2.0"
+  }
+}

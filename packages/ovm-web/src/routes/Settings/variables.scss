@@ -1,0 +1,14 @@
+.base-section-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.base-section-title-gap {
+  margin-bottom: 12px;
+}
+
+@mixin title($bottom) {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: $bottom + px;
+}

@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "declaration": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedParameters": true,
+    "noImplicitOverride": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "lib": ["DOM", "ESNext"],
+    "paths": {
+      "~/*": ["./src/*"],
+      "~sb/*": ["./.storybook/*"]
+    },
+    "noEmit": true
+  },
+  "include": ["src/**/*", "dev/**/*"]
+}

@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "vivaxy.vscode-conventional-commits",
+    "EditorConfig.EditorConfig",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "viijay-kr.react-ts-css",
+    "Lokalise.i18n-ally",
+    "dgeibi.alias-tool"
+  ]
+}

@@ -1,0 +1,172 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 12px;
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+
+.search {
+  width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 42px;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 36px;
+}
+
+.search-box {
+  width: 400px;
+  border-radius: 25px;
+  height: 50px;
+}
+
+.banner-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner-inner {
+  width: 100%;
+}
+
+.banner {
+  width: calc(100% - 48px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  flex-direction: column;
+}
+
+.inner-container {
+  width: 100%;
+  height: 100%;
+}
+
+.inner-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.inner-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.inner-nav-left {
+  display: flex;
+  flex-direction: row;
+}
+
+.inner-nav-cell {
+  font-size: 14px;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.inner-nav-icon {
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+// .inner-nav-right {
+// }
+
+.cell-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cell-box {
+  width: calc(100% / 3 - 16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 4px;
+  margin-top: 24px;
+}
+
+.cell-image-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cell-image {
+  width: 100%;
+  height: 100%;
+}
+
+.cell-info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.cell-info-left {
+  display: flex;
+}
+
+.cell-avatar-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 8px;
+}
+
+.cell-avatar {
+  width: 100%;
+  height: 100%;
+}
+
+.cell-name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.cell-user-name {
+  font-size: 12px;
+  color: #999999;
+}
+
+.cell-like {
+  font-size: 12px;
+  color: #999999;
+  display: flex;
+  flex-direction: row;
+}
+
+.cell-like-icon {
+  font-size: 12px;
+}
+
+.cell-like-number {
+  font-size: 12px;
+  color: #999999;
+  margin-right: 4px;
+}

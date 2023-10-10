@@ -1,0 +1,26 @@
+{
+  "name": "@oomol-lab/ovm-desktop",
+  "private": true,
+  "description": "ovm desktop",
+  "repository": "oomol-lab/ovm-desktop",
+  "scripts": {
+    "dev": "pnpm -F @oomol-lab/ovm-web run dev",
+    "dev:web": "pnpm -F @oomol-lab/ovm-web run dev:web",
+    "dev:electron": "pnpm -F ovm-desktop run dev",
+    "build": "pnpm -r build",
+    "storybook": "pnpm -F @oomol-lab/ovm-web run storybook",
+    "lint": "eslint --ext .ts,.tsx,.js,.mjs . && prettier --check . && cspell --no-progress --show-context --dot --show-suggestions '**/*.{md,ts,tsx,cjs,mjs,js,vue,svelte,scss,css,less,json,yml,yaml,toml,html,sh,go,rs}'",
+    "lint:fix": "eslint --ext .ts,.tsx,.js,.mjs . --fix && prettier -w ."
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.12",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "changelogen": "^0.5.4",
+    "cspell": "^6.30.2",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "prettier": "^2.8.7"
+  }
+}

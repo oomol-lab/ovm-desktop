@@ -1,0 +1,71 @@
+@import "../variables.scss";
+
+.user-box {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+}
+
+.user-image {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  .left {
+    margin-right: 24px;
+    img {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+    }
+  }
+  .right {
+    .user-image-upload-btn {
+      font-size: 14px;
+    }
+    .user-image-upload {
+      font-size: 14px;
+      margin-top: 8px;
+      opacity: 0.6;
+    }
+  }
+}
+
+.user-nick-name-box {
+  width: 100%;
+  margin-bottom: 48px;
+}
+
+.user-nick-name {
+  @include title(12);
+}
+
+.user-nick-input {
+  width: 240px;
+  margin-right: 12px;
+}
+
+.user-icon-box {
+  width: 72px;
+  height: 42px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.user-github {
+  width: 32px;
+  height: 32px;
+}
+
+.user-google {
+  width: 28px;
+  height: 28px;
+}
+
+.section {
+  margin-bottom: 12px;
+}

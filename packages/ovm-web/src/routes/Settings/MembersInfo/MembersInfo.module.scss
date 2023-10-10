@@ -1,0 +1,45 @@
+@import "../variables.scss";
+
+.members-info-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  padding: 12px;
+  box-sizing: border-box;
+  .info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .rights {
+    width: 100%;
+    margin-top: 24px;
+    font-size: 14px;
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      .title {
+        @include title(12);
+      }
+      .link {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+.user-name {
+  @include title(12);
+}
+
+.user-rights {
+  opacity: 0.6;
+}
+
+.members-title {
+  font-size: 16px;
+  font-weight: bold;
+}

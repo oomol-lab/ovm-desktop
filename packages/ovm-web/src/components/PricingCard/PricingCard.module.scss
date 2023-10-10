@@ -1,0 +1,35 @@
+.pricing-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pricing-box-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  margin-top: 16px;
+}
+
+.pricing-box-segmented {
+  margin-bottom: 24px;
+  background-color: var(--segmented-bg-color);
+}
+
+.pricing-segmented {
+  width: 160px;
+  span {
+    color: green;
+    margin-left: 6px;
+  }
+}
+.pricing-all-features {
+  margin-top: 12px;
+}
+
+.pricing-text {
+  font-size: 12px;
+}

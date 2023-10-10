@@ -1,0 +1,13 @@
+.menu {
+  border: none !important;
+  background: transparent !important;
+  user-select: none;
+
+  :global(.ant-menu-title-content > a) {
+    &,
+    &::before {
+      cursor: default;
+      -webkit-user-drag: none;
+    }
+  }
+}

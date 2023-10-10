@@ -1,0 +1,35 @@
+@mixin theme-root {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: var(--text-color);
+  background: var(--background-color);
+}
+
+@mixin theme-light {
+  color-scheme: light;
+
+  --text-color: rgba(0, 0, 0, 0.88);
+  --background-color: #fff;
+  --header-background-color: #fff;
+  --sidebar-background-color: #f6f6f7;
+  --hr-color: rgba(0, 0, 0, 0.12);
+  --inner-bg-color: #fafafa;
+  --notification-right-border: #f3f3f3;
+  --segmented-bg-color: #ecf0f7;
+}
+
+@mixin theme-dark {
+  color-scheme: dark;
+
+  --text-color: rgba(255, 255, 255, 0.85);
+  --background-color: #141414;
+  --header-background-color: #141414;
+  --sidebar-background-color: #26272a;
+  --hr-color: rgba(253, 253, 253, 0.12);
+  --inner-bg-color: #202020;
+  --notification-right-border: #3b3b3b;
+  --segmented-bg-color: #383838;
+}

@@ -1,0 +1,104 @@
+{
+  "name": "@oomol-lab/ovm-web",
+  "version": "0.0.2",
+  "description": "ovm desktop.",
+  "repository": "oomol-lab/ovm-desktop",
+  "type": "module",
+  "types": "./src/main.ts",
+  "module": "./src/main.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "exports": {
+      ".": {
+        "import": "./dist/main.js",
+        "require": "./dist/main.cjs"
+      },
+      "./style.css": "./dist/style.css"
+    },
+    "main": "./dist/main.cjs",
+    "module": "./dist/main.js",
+    "types": "./dist/main.d.ts"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "pnpm run build",
+    "server": "tsx ./dev/server.ts",
+    "dev": "concurrently \"pnpm run server\" \"pnpm run dev:web\"",
+    "dev:web": "vite --open --host",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "build": "vite build",
+    "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "devDependencies": {
+    "@ant-design/icons": "^4.8.0",
+    "@faker-js/faker": "^7.6.0",
+    "@iconify/json": "^2.2.96",
+    "@oomol/connection-websocket-adapter": "^0.1.0",
+    "@storybook/addon-actions": "7.0.18",
+    "@storybook/addon-essentials": "7.0.18",
+    "@storybook/addon-interactions": "7.0.18",
+    "@storybook/addon-links": "7.0.18",
+    "@storybook/addon-viewport": "7.0.18",
+    "@storybook/addons": "^6.5.16",
+    "@storybook/blocks": "7.0.18",
+    "@storybook/preview-api": "7.0.18",
+    "@storybook/react": "7.0.18",
+    "@storybook/react-vite": "7.0.18",
+    "@storybook/theming": "7.0.18",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "@types/react-transition-group": "^4.4.6",
+    "@types/ws": "^8.5.5",
+    "@vitejs/plugin-react": "^3.1.0",
+    "antd": "^5.8.4",
+    "classnames": "^2.3.2",
+    "concurrently": "^8.2.1",
+    "dayjs": "^1.11.9",
+    "jiti": "^1.19.3",
+    "lil-gui": "^0.18.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.2",
+    "react-transition-group": "^4.4.5",
+    "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.23",
+    "sass": "^1.57.1",
+    "storybook": "7.0.18",
+    "typescript": "^5.1.6",
+    "typescript-plugin-css-modules": "^4.1.1",
+    "unocss": "^0.54.1",
+    "use-value-enhancer": "^3.0.1",
+    "val-i18n": "^0.1.6",
+    "val-i18n-react": "^0.1.3",
+    "value-enhancer": "^3.0.5",
+    "vite": "^4.4.2",
+    "vite-plugin-dts": "^2.1.0",
+    "ws": "^8.13.0"
+  },
+  "peerDependencies": {
+    "@ant-design/icons": "4",
+    "antd": "5",
+    "classnames": "2",
+    "dayjs": "1",
+    "react": ">=16",
+    "react-dom": ">=16",
+    "react-router-dom": "6",
+    "react-transition-group": "4",
+    "use-value-enhancer": "3",
+    "val-i18n": "0",
+    "val-i18n-react": "0",
+    "value-enhancer": "3"
+  },
+  "dependencies": {
+    "@oomol/connection": "^0.1.0",
+    "@oomol/connection-electron-adapter": "^0.1.0",
+    "@oomol-lab/ovm-service": "workspace:*",
+    "@oomol/token": "^0.0.5"
+  }
+}

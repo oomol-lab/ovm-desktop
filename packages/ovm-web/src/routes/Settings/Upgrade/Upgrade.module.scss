@@ -1,0 +1,46 @@
+.about-box {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  padding: 12px;
+  .title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .link {
+    font-size: 14px;
+    div {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.about-img-box {
+  margin-bottom: 12px;
+  img {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+.about-name {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.about-update {
+  display: flex;
+  align-items: center;
+  .version {
+    margin-right: 12px;
+    font-size: 14px;
+  }
+}
+
+.installation-update {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}

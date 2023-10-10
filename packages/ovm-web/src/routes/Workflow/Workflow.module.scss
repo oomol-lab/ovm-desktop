@@ -1,0 +1,46 @@
+.box {
+  width: 100%;
+  height: 100%;
+}
+
+.cell-box {
+  width: 240px;
+  height: 160px;
+  border-radius: 8px;
+  background-color: cadetblue;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    height: 24px;
+  }
+  .cell-content {
+    width: 100%;
+    height: 84px;
+    font-size: 14px;
+  }
+  .cell-footer {
+    width: 100%;
+    height: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: white;
+  }
+  .cell-footer-left {
+  }
+  .cell-footer-right {
+  }
+}

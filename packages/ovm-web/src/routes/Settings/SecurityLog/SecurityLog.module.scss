@@ -1,0 +1,15 @@
+@import "../variables.scss";
+
+.log-container {
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  .title {
+    @include title(12);
+  }
+  .sub-title {
+    font-size: 14px;
+    opacity: 0.6;
+  }
+}

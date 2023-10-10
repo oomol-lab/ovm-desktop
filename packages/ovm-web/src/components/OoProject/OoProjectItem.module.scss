@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 180px;
+  height: 90px;
+  border-radius: 12px;
+  padding: 10px;
+  color: #fff;
+  transition: transform 0.2s ease-in-out;
+
+  &:focus {
+    outline: #2b8ce6 solid 2px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    .is-work-space-projectnode {
+      opacity: 1;
+      transition: opacity 0.2s;
+    }
+  }
+}
+
+.iconBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  width: 2em;
+  height: 2em;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.isWorkSpaceProjectnode {
+  opacity: 0;
+}
+
+.projectItemName {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  font-size: 16px;
+  font-weight: 650;
+}

@@ -1,0 +1,44 @@
+{
+  "name": "ovm-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An Electron application with React and TypeScript",
+  "main": "./dist/main/index.js",
+  "author": "www.github.com/oomol",
+  "homepage": "https://www.electronjs.org",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
+    "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
+    "typecheck": "npm run typecheck:node && npm run typecheck:web",
+    "start": "electron-vite preview",
+    "dev": "electron-vite dev",
+    "build": "electron-vite build"
+  },
+  "dependencies": {
+    "@electron-toolkit/preload": "^2.0.0",
+    "@electron-toolkit/utils": "^1.0.2",
+    "@oomol/connection": "^0.1.0",
+    "@oomol/connection-electron-adapter": "^0.1.0",
+    "@oomol-lab/ovm-service": "workspace:*",
+    "@oomol-lab/ovm-web": "workspace:*"
+  },
+  "devDependencies": {
+    "@electron-toolkit/tsconfig": "^1.0.1",
+    "@electron/notarize": "^1.2.3",
+    "@iconify/json": "^2.2.96",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "@vitejs/plugin-react": "^4.0.3",
+    "electron": "^24.6.2",
+    "electron-vite": "^1.0.25",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.57.1",
+    "typescript": "^5.1.6",
+    "unocss": "^0.54.1",
+    "value-enhancer": "^3.0.5",
+    "vite": "^4.4.2"
+  }
+}

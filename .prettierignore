@@ -1,0 +1,5 @@
+packages/*/dist/
+packages/*/coverage/
+docs/
+CHANGELOG.md
+pnpm-lock.yaml

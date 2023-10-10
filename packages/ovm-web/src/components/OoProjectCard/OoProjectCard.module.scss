@@ -1,0 +1,61 @@
+.cell-container {
+  height: 160px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.cell-meta {
+  width: calc(100% - 24px);
+  display: flex;
+  margin-top: 12px;
+}
+
+.cell-meta-left {
+  display: flex;
+}
+
+.cell-meta-right {
+  display: flex;
+}
+
+.cell-image-box {
+  width: 56px;
+  height: 56px;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.cell-image {
+  width: 48px;
+}
+
+.cell-name-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cell-name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.cell-time {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-top: 6px;
+}
+
+.cell-description {
+  width: calc(100% - 32px);
+  font-size: 14px;
+  margin-bottom: 12px;
+}

@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 306px;
+  height: 48px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #7d7fe9;
+}
+
+.buttonText {
+  display: inline;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.errorText {
+  color: red;
+  font-size: 12px;
+}
+
+.subTextBox {
+  display: flex;
+  align-items: center;
+}
+
+.subText {
+  margin-top: 1rem;
+  font-size: 14px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.link {
+  display: inline;
+  color: #7d7fe9;
+  cursor: pointer;
+  text-decoration: none;
+}

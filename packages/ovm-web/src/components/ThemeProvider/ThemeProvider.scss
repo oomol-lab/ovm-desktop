@@ -1,0 +1,13 @@
+@import "~/styles/theme.scss";
+
+.oomol-theme-root {
+  @include theme-root;
+}
+
+.oomol-theme-light {
+  @include theme-light;
+}
+
+.oomol-theme-dark {
+  @include theme-dark;
+}
