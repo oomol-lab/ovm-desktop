@@ -3,9 +3,9 @@ import styles from "./SideNav.module.scss";
 import type { ReactNode } from "react";
 
 import {
-  GlobalOutlined,
-  KeyOutlined,
-  NodeIndexOutlined,
+  CodepenOutlined,
+  FileZipOutlined,
+  InboxOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
@@ -25,19 +25,19 @@ export const SideNav = () => {
       icon: ReactNode;
     }> = [
       {
-        label: "Projects",
-        key: RoutePath.Projects,
-        icon: <NodeIndexOutlined />,
+        label: "Containers",
+        key: RoutePath.Containers,
+        icon: <CodepenOutlined />,
       },
       {
-        label: "Community",
-        key: RoutePath.Community,
-        icon: <GlobalOutlined />,
+        label: "Images",
+        key: RoutePath.Images,
+        icon: <FileZipOutlined />,
       },
       {
-        label: "Secrets",
-        key: RoutePath.Secrets,
-        icon: <KeyOutlined />,
+        label: "Volumes",
+        key: RoutePath.Volumes,
+        icon: <InboxOutlined />,
       },
       {
         label: "Settings",

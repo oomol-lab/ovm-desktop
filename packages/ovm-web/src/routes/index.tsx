@@ -15,12 +15,12 @@ import {
   createHashRouter,
   generatePath,
 } from "react-router-dom";
-import { Secrets } from "~/routes/Secrets";
+import { Volumes } from "~/routes/Volumes";
 
-import { Community } from "./Community";
 import { RoutePath } from "./constants";
+import { Containers } from "./Containers";
 import { HomeRoot } from "./HomeRoot";
-import { Projects } from "./Projects";
+import { Images } from "./Images";
 import { ConfigurationEnum, Settings } from "./Settings";
 
 export type AppContext = {
@@ -38,7 +38,7 @@ const createRouter = () =>
       children: [
         {
           path: RoutePath.Root,
-          element: <Navigate to={RoutePath.Projects} replace />,
+          element: <Navigate to={RoutePath.Containers} replace />,
         },
         {
           path: RoutePath.HomeRoot,
@@ -46,11 +46,11 @@ const createRouter = () =>
           children: [
             {
               path: RoutePath.HomeRoot,
-              element: <Navigate to={RoutePath.Projects} replace />,
+              element: <Navigate to={RoutePath.Containers} replace />,
             },
             {
-              path: RoutePath.Projects,
-              element: <Projects />,
+              path: RoutePath.Containers,
+              element: <Containers />,
             },
             {
               path: RoutePath.SettingsMenu,
@@ -68,12 +68,12 @@ const createRouter = () =>
               ),
             },
             {
-              path: RoutePath.Community,
-              element: <Community />,
+              path: RoutePath.Images,
+              element: <Images />,
             },
             {
-              path: RoutePath.Secrets,
-              element: <Secrets />,
+              path: RoutePath.Volumes,
+              element: <Volumes />,
             },
           ],
         },

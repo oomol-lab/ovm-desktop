@@ -2,8 +2,7 @@ $schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell
 language: en
 ignoreRegExpList:
   - Email
-  - >-
-    /@[^\s]*/g
+  - /@[^\s]*/g
 words:
   - actionbar
   - aftersign
@@ -39,6 +38,7 @@ words:
   - Clav
   - clazz
   - clsx
+  - Codepen
   - commitlint
   - commitlintrc
   - copydir
