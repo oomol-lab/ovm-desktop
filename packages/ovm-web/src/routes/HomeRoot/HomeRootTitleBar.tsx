@@ -2,6 +2,7 @@ import type { Val } from "value-enhancer";
 
 import { useLocation } from "react-router-dom";
 import { useVal } from "use-value-enhancer";
+import { HomeTitleBarLayout } from "~/components/HomeTitleBar";
 import { useIsomorphicLayoutEffect } from "~/hooks";
 
 export interface HomeRootTitleBarProps {
@@ -17,5 +18,5 @@ export const HomeRootTitleBar = ({ titleBar$ }: HomeRootTitleBarProps) => {
     },
     [location]
   );
-  return titleBar;
+  return <>{titleBar || <HomeTitleBarLayout />}</>;
 };
