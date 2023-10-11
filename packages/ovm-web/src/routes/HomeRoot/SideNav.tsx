@@ -25,7 +25,7 @@ export const SideNav = () => {
       icon: ReactNode;
     }> = [
       {
-        label: "Containers",
+        label: t("nav.containers"),
         key: RoutePath.Containers,
         icon: <CodepenOutlined />,
       },

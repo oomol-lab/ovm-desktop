@@ -24,10 +24,8 @@ export default defineConfig({
         "@renderer": fileURLToPath(
           new URL("./src/renderer/src", import.meta.url)
         ),
-        "~": fileURLToPath(new URL("../studio-home/src", import.meta.url)),
-        "~sb": fileURLToPath(
-          new URL("../studio-home/.storybook", import.meta.url)
-        ),
+        "~": fileURLToPath(new URL("../ovm-web/src", import.meta.url)),
+        "~sb": fileURLToPath(new URL("../ovm-web/.storybook", import.meta.url)),
       },
     },
     css: {
