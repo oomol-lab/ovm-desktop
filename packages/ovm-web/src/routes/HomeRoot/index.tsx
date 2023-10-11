@@ -30,7 +30,8 @@ export const HomeRoot = () => {
         {os !== OS.Mac && (
           <div className={styles["sidebar-header"]}>
             <div className={styles["sidebar-header-box"]}>
-              <div className={styles.left}></div>
+              <div className={styles.left} />
+              <div className={styles.logo} />
             </div>
           </div>
         )}
