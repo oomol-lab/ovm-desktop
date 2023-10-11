@@ -1,5 +1,35 @@
 {
+  "containers": {
+    "title": "Containers"
+  },
+  "images": {
+    "title": "Images"
+  },
   "nav": {
-    "containers": ""
+    "containers": "Containers",
+    "images": "Images",
+    "settings": "Settings",
+    "volumes": "Volumes"
+  },
+  "settings": {
+    "agreement": "Agreement",
+    "auto-update": "Auto Update",
+    "check-update": "Check Update",
+    "dark": "Dark",
+    "language": "Language",
+    "light": "Light",
+    "open-source": "Open Source",
+    "preferences": "Preferences",
+    "privacy": "Privacy",
+    "system": "Follow System",
+    "theme": "Theme",
+    "title": "Settings",
+    "update-log": "Update log",
+    "upgrade": "Upgrade",
+    "version": "Version",
+    "version-about": "Version About"
+  },
+  "volumes": {
+    "title": "Volumes"
   }
 }

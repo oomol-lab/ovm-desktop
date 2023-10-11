@@ -30,17 +30,17 @@ export const SideNav = () => {
         icon: <CodepenOutlined />,
       },
       {
-        label: "Images",
+        label: t("nav.images"),
         key: RoutePath.Images,
         icon: <FileZipOutlined />,
       },
       {
-        label: "Volumes",
+        label: t("nav.volumes"),
         key: RoutePath.Volumes,
         icon: <InboxOutlined />,
       },
       {
-        label: "Settings",
+        label: t("nav.settings"),
         key: RoutePath.Settings,
         icon: <SettingOutlined />,
       },
