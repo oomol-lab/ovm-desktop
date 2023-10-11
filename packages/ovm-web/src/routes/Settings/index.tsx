@@ -63,8 +63,16 @@ export const Settings = () => {
 
   const items = useMemo<MenuItem[]>(
     () => [
-      getItem("Preferences", ConfigurationEnum.Preferences, <ToolOutlined />),
-      getItem("Upgrade", ConfigurationEnum.Upgrade, <SyncOutlined />),
+      getItem(
+        t("settings.preferences"),
+        ConfigurationEnum.Preferences,
+        <ToolOutlined />
+      ),
+      getItem(
+        t("settings.upgrade"),
+        ConfigurationEnum.Upgrade,
+        <SyncOutlined />
+      ),
     ],
     [t]
   );

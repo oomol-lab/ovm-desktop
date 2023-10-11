@@ -4,7 +4,7 @@ import type { RouteOutletContext } from "../typings";
 import type { Val } from "value-enhancer";
 
 import { GithubOutlined } from "@ant-design/icons";
-import { Button, Modal } from "antd";
+import { Button } from "antd";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { val } from "value-enhancer";
@@ -17,7 +17,7 @@ import { SideNav } from "./SideNav";
 export const HomeRoot = () => {
   const os = useOS();
   const [titleBar$] = useState<Val<React.ReactNode>>(val);
-  const [modalOpen, setModalOpen] = useState(false);
+
   const outletContext: RouteOutletContext = titleBar$.set;
 
   return (
@@ -30,7 +30,8 @@ export const HomeRoot = () => {
         {os !== OS.Mac && (
           <div className={styles["sidebar-header"]}>
             <div className={styles["sidebar-header-box"]}>
-              <div className={styles.left}></div>
+              <div className={styles.left} />
+              <div className={styles.logo} />
             </div>
           </div>
         )}
@@ -40,23 +41,16 @@ export const HomeRoot = () => {
         <div className={styles["sidebar-footer"]}>
           <div className={styles["sidebar-plan"]}>
             <Button
-              onClick={() => setModalOpen(true)}
+              href="https://github.com/oomol-lab/ovm-desktop"
+              target="_blank"
               className={styles["sidebar-plan-btn"]}
+              icon={<GithubOutlined />}
               type="primary"
               ghost
             >
-              <GithubOutlined />
               github
             </Button>
           </div>
-          <Modal
-            centered
-            footer
-            width={1080}
-            open={modalOpen}
-            onOk={() => setModalOpen(false)}
-            onCancel={() => setModalOpen(false)}
-          ></Modal>
         </div>
       </div>
       <div className={styles.main}>

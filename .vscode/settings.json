@@ -56,7 +56,7 @@
   "conventionalCommits.gitmoji": false,
   "conventionalCommits.promptFooter": false,
   "conventionalCommits.scopes": [
-    "studio-home",
+    "ovm-web",
     "i18n",
     "repo",
     "lint",
@@ -79,7 +79,7 @@
     "projects",
     "electron"
   ],
-  "i18n-ally.localesPaths": "packages/studio-home/src/locales",
+  "i18n-ally.localesPaths": "packages/ovm-web/src/locales",
   "i18n-ally.pathMatcher": "{locale}.json",
   "i18n-ally.displayLanguage": "zh-CN",
   "i18n-ally.namespace": false,
@@ -89,7 +89,7 @@
   "i18n-ally.enabledFrameworks": ["react"],
   "i18n-ally.enabledParsers": ["json"],
   "alias-tool.mappings": {
-    "~": "${folder}/packages/studio-home/src",
-    "sb": "${folder}/packages/studio-home/.storybook"
+    "~": "${folder}/packages/ovm-web/src",
+    "sb": "${folder}/packages/ovm-web/.storybook"
   }
 }

@@ -19,6 +19,8 @@
   --inner-bg-color: #fafafa;
   --notification-right-border: #f3f3f3;
   --segmented-bg-color: #ecf0f7;
+  --ovm-logo: url("./images/ovm_black.svg");
+  --ovm-circle-logo: url("./images/logo.svg");
 }
 
 @mixin theme-dark {
@@ -32,4 +34,6 @@
   --inner-bg-color: #202020;
   --notification-right-border: #3b3b3b;
   --segmented-bg-color: #383838;
+  --ovm-logo: url("./images/ovm_white.svg");
+  --ovm-circle-logo: url("./images/logo.svg");
 }

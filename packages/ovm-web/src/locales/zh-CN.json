@@ -1,1 +1,35 @@
-{}
+{
+  "containers": {
+    "title": "容器"
+  },
+  "images": {
+    "title": "镜像"
+  },
+  "nav": {
+    "containers": "容器",
+    "images": "镜像",
+    "settings": "设置",
+    "volumes": "存储卷"
+  },
+  "settings": {
+    "agreement": "用户协议",
+    "auto-update": "自动升级",
+    "check-update": "检查更新",
+    "dark": "深色",
+    "language": "语言",
+    "light": "浅色",
+    "open-source": "开源项目",
+    "preferences": "偏好设置",
+    "privacy": "隐私协议",
+    "system": "跟随系统",
+    "theme": "主题",
+    "title": "设置",
+    "update-log": "升级日志",
+    "upgrade": "版本升级",
+    "version": "版本",
+    "version-about": "关于"
+  },
+  "volumes": {
+    "title": "存储卷"
+  }
+}

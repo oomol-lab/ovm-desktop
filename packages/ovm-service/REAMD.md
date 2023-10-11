@@ -1,6 +1,6 @@
 # home-service
 
-本项目基于`@oomol/connection`和`@oomol/token`开发，为`studio-home`项目提供前后端隔离环境的 API 调用和后端实现。部分 API 代码和结构，参考自[@oomol/connection](https://github.com/oomol/oomol-connection)文档。
+本项目基于`@oomol/connection`和`@oomol/token`开发，为`ovm-desktop`项目提供前后端隔离环境的 API 调用和后端实现。部分 API 代码和结构，参考自[@oomol/connection](https://github.com/oomol/oomol-connection)文档。
 
 ## 使用
 
@@ -48,7 +48,10 @@ const signinService = client.use(SigninService);
 ```typescript
 import { ConnectionServer } from "@oomol/connection";
 import { ElectronServerAdapter } from "@oomol/connection-electron-adapter/server";
-import { WindowServiceImpl, SigninServiceImpl } from "@oomol-lab/ovm-service/node";
+import {
+  WindowServiceImpl,
+  SigninServiceImpl,
+} from "@oomol-lab/ovm-service/node";
 
 const server = new ConnectionServer(new ElectronServerAdapter());
 
