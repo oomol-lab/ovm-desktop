@@ -3,8 +3,8 @@ import styles from "./Projects.module.scss";
 import type { ColumnsType } from "antd/es/table";
 
 import {
+  CaretRightOutlined,
   DeleteOutlined,
-  FolderOutlined,
   PlusCircleOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
@@ -32,24 +32,24 @@ export const Containers = () => {
   const t = useTranslate();
   const columns: ColumnsType<DataType> = [
     {
-      title: t("containers.name"),
+      title: t("page.name"),
       dataIndex: "name",
     },
     {
-      title: t("containers.statues"),
+      title: t("page.statues"),
       dataIndex: "status",
       render: () => <Badge status="success" text="Finished" />,
     },
     {
-      title: t("containers.created"),
+      title: t("page.created"),
       dataIndex: "created",
     },
     {
-      title: t("containers.actions"),
+      title: t("page.actions"),
       dataIndex: "actions",
       render: () => (
         <div>
-          <Button type="text" icon={<FolderOutlined />} />
+          <Button type="text" icon={<CaretRightOutlined />} />
           <Divider type="vertical" />
           <Button type="text" icon={<DeleteOutlined />} />
         </div>
@@ -71,13 +71,13 @@ export const Containers = () => {
         <div>
           <Input
             prefix={<SearchOutlined />}
-            placeholder={t("containers.search-holder")}
+            placeholder={t("page.search-holder")}
             size="middle"
           />
         </div>
         <div>
           <Button icon={<PlusCircleOutlined />} type="primary">
-            {t("containers.create")}
+            {t("page.create")}
           </Button>
         </div>
       </div>
