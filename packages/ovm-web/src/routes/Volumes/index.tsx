@@ -1,5 +1,5 @@
-import styles from "./Secrets.module.scss";
+import styles from "./Volumes.module.scss";
 
 export const Volumes = () => {
-  return <div className={styles.box}>Volumes</div>;
+  return <div className={styles.container}>Volumes</div>;
 };

@@ -48,7 +48,7 @@ export const HomeRoot = () => {
               type="primary"
               ghost
             >
-              github
+              Github
             </Button>
           </div>
         </div>

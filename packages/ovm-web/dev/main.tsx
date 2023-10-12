@@ -13,7 +13,6 @@ import { from, unwrap, val } from "value-enhancer";
 import { StudioHome, Appearance, OS } from "../src/main";
 import { ControlPanel } from "./components/ControlPanel";
 import { port } from "./constants";
-import { preferencesData } from "./fake-data/preferencesData";
 import { upgradeData } from "./fake-data/upgradeData";
 import { SigninService, WindowService } from "../../ovm-service/src/common";
 
@@ -53,11 +52,6 @@ const appContext: AppContext = {
     await new Promise(resolve => setTimeout(resolve, 2000));
     return upgradeData();
   },
-  getOoPreferences: async () => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return preferencesData();
-  },
-
   signinService,
   windowService,
 };
