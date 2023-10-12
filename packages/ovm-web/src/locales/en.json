@@ -1,5 +1,11 @@
 {
   "containers": {
+    "actions": "Actions",
+    "create": "Create",
+    "created": "Created",
+    "name": "Name",
+    "search-holder": "Search container",
+    "statues": "Status",
     "title": "Containers"
   },
   "images": {

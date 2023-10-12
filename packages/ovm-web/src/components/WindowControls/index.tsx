@@ -17,7 +17,9 @@ export const WindowControls: FC<Win11WindowControlsProps> = ({
   const os = useOS();
   return os === OS.Windows ? (
     <Win11WindowControls onClickWin11SystemBtn={onClickWin11SystemBtn} />
-  ) : os === OS.Mac ? null : (
+  ) : os === OS.Mac ? (
+    <MacWindowControls />
+  ) : (
     <MacWindowControls />
   );
 };

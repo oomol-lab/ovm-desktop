@@ -40,16 +40,23 @@ export const HomeRoot = () => {
         </div>
         <div className={styles["sidebar-footer"]}>
           <div className={styles["sidebar-plan"]}>
-            <Button
-              href="https://github.com/oomol-lab/ovm-desktop"
-              target="_blank"
-              className={styles["sidebar-plan-btn"]}
-              icon={<GithubOutlined />}
-              type="primary"
-              ghost
-            >
-              Github
-            </Button>
+            {os === OS.Mac ? (
+              <div className={styles["sidebar-header-box"]}>
+                <div className={styles.left} />
+                <div className={styles.logo} />
+              </div>
+            ) : (
+              <Button
+                href="https://github.com/oomol-lab/ovm-desktop"
+                target="_blank"
+                className={styles["sidebar-plan-btn"]}
+                icon={<GithubOutlined />}
+                type="primary"
+                ghost
+              >
+                Github
+              </Button>
+            )}
           </div>
         </div>
       </div>
