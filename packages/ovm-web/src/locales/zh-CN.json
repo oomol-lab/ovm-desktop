@@ -8,6 +8,9 @@
     "statues": "状态",
     "title": "容器"
   },
+  "containers": {
+    "title": "容器"
+  },
   "images": {
     "title": "镜像"
   },
