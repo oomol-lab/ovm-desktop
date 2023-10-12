@@ -6,6 +6,7 @@
   flex-wrap: nowrap;
   box-sizing: border-box;
   padding: 0 15px 0 20px;
+  justify-content: space-between;
 }
 
 .title {
@@ -16,6 +17,4 @@
 
 .footer {
   -webkit-app-region: no-drag;
-
-  margin-left: auto;
 }

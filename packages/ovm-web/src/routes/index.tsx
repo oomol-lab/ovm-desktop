@@ -1,4 +1,3 @@
-import type { AppContext as PreferencesContext } from "./Settings/Preferences";
 import type { AppContext as UpgradeContext } from "./Settings/Upgrade";
 import type {
   WindowService,
@@ -28,8 +27,7 @@ export type AppContext = {
   darkMode$: ReadonlyVal<boolean>;
   windowService?: ConnectionClientService<WindowService>;
   signinService: ConnectionClientService<SigninService>;
-} & UpgradeContext &
-  PreferencesContext;
+} & UpgradeContext;
 
 const createRouter = () =>
   createHashRouter([
