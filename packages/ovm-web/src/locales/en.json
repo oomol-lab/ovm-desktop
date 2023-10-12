@@ -5,7 +5,9 @@
     "created": "Created",
     "name": "Name",
     "search-holder": "Search container",
-    "statues": "Status",
+    "statues": "Status"
+  },
+  "containers": {
     "title": "Containers"
   },
   "images": {
