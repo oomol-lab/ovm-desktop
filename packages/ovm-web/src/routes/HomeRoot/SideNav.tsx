@@ -55,13 +55,10 @@ export const SideNav = () => {
 
   const location = useLocation();
 
-  const selectedKeys = useMemo(
-    () =>
-      items.some(item => item.key === location.pathname)
-        ? [location.pathname]
-        : [],
-    [items, location.pathname]
-  );
+  const selectedKeys = useMemo(() => {
+    const pathname = "/" + location.pathname.split("/").slice(1, 3).join("/");
+    return items.some(item => item.key === pathname) ? [pathname] : [];
+  }, [items, location.pathname]);
 
   const navigate = useNavigate();
 
