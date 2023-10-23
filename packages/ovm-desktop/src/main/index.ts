@@ -86,6 +86,10 @@ app.on("window-all-closed", () => {
   }
 });
 
+app.on("quit", async () => {
+  await ovmService.stop();
+});
+
 // https://www.electronjs.org/zh/docs/latest/tutorial/%E4%BB%8E%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E4%B8%AD%E7%9A%84URL%E5%90%AF%E5%8A%A8%E5%BA%94%E7%94%A8
 // TODO: Windows 下需要额外一些处理，需要在 Windows 下进行测试
 

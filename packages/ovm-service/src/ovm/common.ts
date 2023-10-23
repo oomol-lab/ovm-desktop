@@ -51,5 +51,7 @@ export type OVMService = DefineService<{
 
     listVolumes: () => Promise<VolumeInfo[] | undefined>;
     removeVolume: (name: string) => Promise<void>;
+
+    stop: () => Promise<void>;
   };
 }>;

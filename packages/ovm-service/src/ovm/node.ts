@@ -1,4 +1,5 @@
 import type { IConnectionService } from "@oomol/connection";
+import type { DarwinOVM } from "@oomol-lab/ovm";
 import type { Stream } from "stream";
 
 import { ConnectionService } from "@oomol/connection";
@@ -16,6 +17,7 @@ export class OVMServiceImpl
 {
   private _ready = false;
   private docker: Docker | undefined;
+  private ovm: DarwinOVM | undefined;
 
   public constructor(private isPackaged: boolean, private appPath: string) {
     super(OVMService);
@@ -40,6 +42,7 @@ export class OVMServiceImpl
       logDir: path.join(ovmDir, "log").toString(),
       targetDir: path.join(ovmDir, "target").toString(),
     });
+    this.ovm = ovm;
 
     ovm.on("ready", () => {
       console.log("[OVM]: ready");
@@ -150,6 +153,10 @@ export class OVMServiceImpl
 
   private shortId(id: string) {
     return id.replace("sha256:", "").slice(0, 12);
+  }
+
+  public async stop() {
+    await this.ovm?.stop();
   }
 
   public isReady() {
