@@ -1,6 +1,6 @@
 import styles from "./Win11WindowControls.module.scss";
 
-import type { WindowStatus } from "../../../../../ovm-service/src/common";
+import type { WindowStatus } from "@oomol-lab/ovm-service";
 import type { FC } from "react";
 
 export interface Win11WindowControlsProps {

@@ -1,5 +1,5 @@
 import type { AppContext } from "./routes";
-import type { WindowStatus } from "../../ovm-service/src/common";
+import type { WindowStatus } from "@oomol-lab/ovm-service";
 import type { PropsWithChildren } from "react";
 import type { ReadonlyVal } from "value-enhancer";
 

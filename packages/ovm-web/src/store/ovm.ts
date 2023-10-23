@@ -10,6 +10,7 @@ export class OVMStore {
     this.whenReady = new Promise(resolve => {
       const dispose = this.ovmService.on("ready", () => {
         resolve();
+        console.log("[OVM]: ready");
       });
 
       this.ovmService.invoke("isReady").then(ready => {
