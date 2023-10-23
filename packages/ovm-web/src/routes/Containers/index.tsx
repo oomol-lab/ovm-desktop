@@ -1,5 +1,6 @@
 import styles from "./Projects.module.scss";
 
+import type { ContainerInfo } from "@oomol-lab/ovm-service/common";
 import type { ColumnsType } from "antd/es/table";
 
 import {
@@ -8,37 +9,45 @@ import {
   PlusCircleOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
-import { faker } from "@faker-js/faker";
-import { Badge, Button, Divider, Input, Table } from "antd";
-import { useState } from "react";
+import { Button, Divider, Input, Table } from "antd";
+import { useEffect, useState } from "react";
 import { useTranslate } from "val-i18n-react";
 
-interface DataType {
-  key: React.Key;
-  status: string;
-  created: number;
-  actions: string;
-}
-
-const data = faker.datatype.array(20).map(() => ({
-  key: faker.datatype.uuid(),
-  name: faker.name.fullName(),
-  status: faker.name.jobTitle(),
-  created: faker.date.past().getTime(),
-  actions: faker.address.streetAddress(),
-}));
+import { useAppContext } from "../../hooks";
 
 export const Containers = () => {
+  const { ovmStore } = useAppContext();
+  const [containers, setContainers] = useState<ContainerInfo[]>([]);
+  useEffect(() => {
+    ovmStore.listContainers().then(containers => {
+      console.log(containers);
+      if (containers) {
+        setContainers(containers);
+      }
+    });
+  }, []);
+  const removeContainer = async (id: string) => {
+    await ovmStore.removeContainer(id);
+    const newContainers = containers.filter(container => container.id !== id);
+    setContainers(newContainers);
+  };
+
   const t = useTranslate();
-  const columns: ColumnsType<DataType> = [
+  const columns: ColumnsType<ContainerInfo> = [
     {
       title: t("page.name"),
       dataIndex: "name",
     },
     {
-      title: t("page.statues"),
+      title: t("page.image"),
+      dataIndex: "image",
+    },
+    {
+      title: t("page.status"),
       dataIndex: "status",
-      render: () => <Badge status="success" text="Finished" />,
+      render: (status: string) => {
+        return status;
+      },
     },
     {
       title: t("page.created"),
@@ -47,11 +56,15 @@ export const Containers = () => {
     {
       title: t("page.actions"),
       dataIndex: "actions",
-      render: () => (
+      render: (_, info) => (
         <div>
           <Button type="text" icon={<CaretRightOutlined />} />
           <Divider type="vertical" />
-          <Button type="text" icon={<DeleteOutlined />} />
+          <Button
+            type="text"
+            onClick={() => removeContainer(info.id)}
+            icon={<DeleteOutlined />}
+          />
         </div>
       ),
     },
@@ -86,7 +99,8 @@ export const Containers = () => {
           pagination={false}
           rowSelection={rowSelection}
           columns={columns}
-          dataSource={data}
+          dataSource={containers}
+          rowKey={row => row.id}
           scroll={{ y: "calc(100vh - 200px)" }}
         />
       </div>

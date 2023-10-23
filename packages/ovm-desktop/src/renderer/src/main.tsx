@@ -4,8 +4,13 @@ import type { AppContext } from "@oomol-lab/ovm-web";
 
 import { ConnectionClient } from "@oomol/connection";
 import { ElectronClientAdapter } from "@oomol/connection-electron-adapter/client";
-import { WindowService, SigninService } from "@oomol-lab/ovm-service/common";
+import {
+  WindowService,
+  SigninService,
+  OVMService,
+} from "@oomol-lab/ovm-service/common";
 import { StudioHome } from "@oomol-lab/ovm-web";
+import { OVMStore } from "@oomol-lab/ovm-web/src/store";
 import { createRoot } from "react-dom/client";
 import { val } from "value-enhancer";
 
@@ -14,15 +19,21 @@ const client = new ConnectionClient(new ElectronClientAdapter());
 client.start();
 const windowService = client.use(WindowService);
 const signinService = client.use(SigninService);
+const ovmService = client.use(OVMService);
 
 const localeLang$ = val<string | undefined>();
 
 const os = await windowService.invoke("getPlatform");
 const os$ = val(os);
 const darkMode$ = val(true);
-const appContext: AppContext = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const appContext: AppContext & any = {
   os$,
   darkMode$,
+  windowService,
+  signinService,
+  ovmService,
+  ovmStore: new OVMStore(ovmService),
   getOoProjects: async () => {
     await new Promise(resolve => setTimeout(resolve, 2000));
     return [];
@@ -76,8 +87,11 @@ const appContext: AppContext = {
       platform: "",
     };
   },
-  windowService,
-  signinService,
+  getOoUpgrade: async () => {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return {} as any;
+  },
 };
 
 const root = createRoot(document.getElementById("root")!);

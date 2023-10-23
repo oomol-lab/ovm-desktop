@@ -1,9 +1,11 @@
 import type { AppContext as UpgradeContext } from "./Settings/Upgrade";
+import type { OVMStore } from "../store";
+import type { ConnectionClientService } from "@oomol/connection";
 import type {
   WindowService,
   SigninService,
-} from "../../../ovm-service/src/common";
-import type { ConnectionClientService } from "@oomol/connection";
+  OVMService,
+} from "@oomol-lab/ovm-service/common";
 import type { ReadonlyVal } from "value-enhancer";
 import type { OSLiteral } from "~/constants";
 
@@ -27,6 +29,8 @@ export type AppContext = {
   darkMode$: ReadonlyVal<boolean>;
   windowService?: ConnectionClientService<WindowService>;
   signinService: ConnectionClientService<SigninService>;
+  ovmService: ConnectionClientService<OVMService>;
+  ovmStore: OVMStore;
 } & UpgradeContext;
 
 const createRouter = () =>

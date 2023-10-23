@@ -8,6 +8,7 @@
     "dev:web": "pnpm -F @oomol-lab/ovm-web run dev:web",
     "dev:electron": "pnpm -F ovm-desktop run dev",
     "build": "pnpm -r build",
+    "pack": "pnpm -F ovm-desktop run pack",
     "storybook": "pnpm -F @oomol-lab/ovm-web run storybook",
     "lint": "eslint --ext .ts,.tsx,.js,.mjs . && prettier --check . && cspell --no-progress --show-context --dot --show-suggestions '**/*.{md,ts,tsx,cjs,mjs,js,vue,svelte,scss,css,less,json,yml,yaml,toml,html,sh,go,rs}'",
     "lint:fix": "eslint --ext .ts,.tsx,.js,.mjs . --fix && prettier -w ."

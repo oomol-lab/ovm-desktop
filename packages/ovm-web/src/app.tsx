@@ -25,7 +25,7 @@ export const StudioHome = ({
   const i18n = useI18nLoader(localeLang$);
   const { windowService } = appContext;
   const onClickWin11SystemBtn = (args: WindowStatus) => {
-    windowService.send("updateWindowStatus", args);
+    windowService?.send("updateWindowStatus", args);
   };
 
   if (!i18n) {

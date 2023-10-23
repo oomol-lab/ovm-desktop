@@ -6,15 +6,20 @@ import type { ReadonlyVal } from "value-enhancer";
 
 import { ConnectionClient } from "@oomol/connection";
 import { WebClientAdapter } from "@oomol/connection-websocket-adapter/client";
+import {
+  SigninService,
+  WindowService,
+  OVMService,
+} from "@oomol-lab/ovm-service/common";
 import { GUI } from "lil-gui";
 import { createRoot } from "react-dom/client";
 import { from, unwrap, val } from "value-enhancer";
 
 import { StudioHome, Appearance, OS } from "../src/main";
+import { OVMStore } from "../src/store";
 import { ControlPanel } from "./components/ControlPanel";
 import { port } from "./constants";
 import { upgradeData } from "./fake-data/upgradeData";
-import { SigninService, WindowService } from "../../ovm-service/src/common";
 
 const gui = new GUI({ autoPlace: false });
 
@@ -25,6 +30,7 @@ client.start();
 
 const signinService = client.use(SigninService);
 const windowService = client.use(WindowService);
+const ovmService = client.use(OVMService);
 
 const appearance$ = val(Appearance.Dark);
 gui.add(appearance$, "value", [
@@ -54,6 +60,8 @@ const appContext: AppContext = {
   },
   signinService,
   windowService,
+  ovmService,
+  ovmStore: new OVMStore(ovmService),
 };
 
 setupGUIPersistence(gui);

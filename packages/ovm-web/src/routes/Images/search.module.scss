@@ -1,0 +1,17 @@
+.modal-content {
+  margin-top: 30px;
+  .list {
+    margin-top: 10px;
+    height: 400px;
+    overflow-y: scroll;
+    padding-right: 5px;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #cccccc;
+      border-radius: 6px;
+    }
+  }
+}

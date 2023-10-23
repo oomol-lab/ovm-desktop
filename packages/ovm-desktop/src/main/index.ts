@@ -1,15 +1,16 @@
 import { electronApp, is, optimizer } from "@electron-toolkit/utils";
 import { ConnectionServer } from "@oomol/connection";
 import { ElectronServerAdapter } from "@oomol/connection-electron-adapter/server";
-import { WindowServiceImpl } from "@oomol-lab/ovm-service/node";
+import { WindowServiceImpl, OVMServiceImpl } from "@oomol-lab/ovm-service/node";
 import { BrowserWindow, app, dialog, shell } from "electron";
 import path, { join } from "path";
 
 const server = new ConnectionServer(new ElectronServerAdapter());
 
 server.start();
-
+const ovmService = new OVMServiceImpl(app.isPackaged, app.getAppPath());
 server.registerService(new WindowServiceImpl());
+server.registerService(ovmService);
 
 // 使用参考上文 `opensumi` 后端
 function createWindow(): void {

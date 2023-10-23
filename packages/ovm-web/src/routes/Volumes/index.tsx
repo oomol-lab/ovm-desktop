@@ -1,5 +1,6 @@
 import styles from "./Volumes.module.scss";
 
+import type { VolumeInfo } from "@oomol-lab/ovm-service/common";
 import type { ColumnsType } from "antd/es/table";
 
 import {
@@ -8,35 +9,37 @@ import {
   PlusCircleOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
-import { faker } from "@faker-js/faker";
 import { Badge, Button, Divider, Input, Table } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslate } from "val-i18n-react";
 
-interface DataType {
-  key: React.Key;
-  status: string;
-  created: number;
-  actions: string;
-}
-
-const data = faker.datatype.array(20).map(() => ({
-  key: faker.datatype.uuid(),
-  name: faker.name.fullName(),
-  status: faker.name.jobTitle(),
-  created: faker.date.past().getTime(),
-  actions: faker.address.streetAddress(),
-}));
+import { useAppContext } from "../../hooks";
 
 export const Volumes = () => {
+  const { ovmStore } = useAppContext();
+  const [volumes, setVolumes] = useState<VolumeInfo[]>([]);
+  useEffect(() => {
+    ovmStore.listVolumes().then(volumes => {
+      console.log(volumes);
+      if (volumes) {
+        setVolumes(volumes);
+      }
+    });
+  }, []);
+
+  const removeVolume = async (name: string) => {
+    await ovmStore.removeVolume(name);
+    const newVolumes = volumes.filter(volume => volume.name !== name);
+    setVolumes(newVolumes);
+  };
   const t = useTranslate();
-  const columns: ColumnsType<DataType> = [
+  const columns: ColumnsType<VolumeInfo> = [
     {
       title: t("page.name"),
       dataIndex: "name",
     },
     {
-      title: t("page.statues"),
+      title: t("page.status"),
       dataIndex: "status",
       render: () => <Badge status="success" text="Finished" />,
     },
@@ -47,11 +50,15 @@ export const Volumes = () => {
     {
       title: t("page.actions"),
       dataIndex: "actions",
-      render: () => (
+      render: (_, volume) => (
         <div>
           <Button type="text" icon={<CaretRightOutlined />} />
           <Divider type="vertical" />
-          <Button type="text" icon={<DeleteOutlined />} />
+          <Button
+            type="text"
+            onClick={() => removeVolume(volume.name)}
+            icon={<DeleteOutlined />}
+          />
         </div>
       ),
     },
@@ -86,7 +93,7 @@ export const Volumes = () => {
           pagination={false}
           rowSelection={rowSelection}
           columns={columns}
-          dataSource={data}
+          dataSource={volumes}
           scroll={{ y: "calc(100vh - 200px)" }}
         />
       </div>
