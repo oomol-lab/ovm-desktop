@@ -5,7 +5,11 @@
     "created": "Created",
     "name": "Name",
     "search-holder": "Search container",
-    "statues": "Status"
+    "status": "Status",
+    "size": "Size",
+    "image": "Image",
+    "pull-image": "Pull Image",
+    "search-image-holder": "Search image"
   },
   "containers": {
     "title": "Containers"

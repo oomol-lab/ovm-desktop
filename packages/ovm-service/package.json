@@ -84,7 +84,12 @@
   "devDependencies": {
     "@oomol/connection": "^0.1.0",
     "@oomol/token": "^0.0.5",
-    "electron": "^24.6.2",
+    "@types/dockerode": "^3.3.21",
+    "electron": "^26.4.1",
     "tsup": "^7.2.0"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.9",
+    "dockerode": "^4.0.0"
   }
 }
