@@ -19,7 +19,7 @@ import {
 import { Volumes } from "~/routes/Volumes";
 
 import { RoutePath } from "./constants";
-import { Containers } from "./Containers";
+import { Containers, ContainerDetail } from "./Containers";
 import { HomeRoot } from "./HomeRoot";
 import { Images } from "./Images";
 import { ConfigurationEnum, Settings } from "./Settings";
@@ -53,6 +53,10 @@ const createRouter = () =>
             {
               path: RoutePath.Containers,
               element: <Containers />,
+            },
+            {
+              path: RoutePath.ContainerDetail,
+              element: <ContainerDetail />,
             },
             {
               path: RoutePath.SettingsMenu,

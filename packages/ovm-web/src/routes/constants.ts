@@ -1,9 +1,13 @@
 export enum RoutePath {
   Root = "/",
   HomeRoot = "/home",
+
   Containers = "/home/containers",
+  ContainerDetail = "/home/containers/:id",
+
   Settings = "/home/settings",
   SettingsMenu = "/home/settings/:menuKey",
+
   Images = "/home/images",
   Volumes = "/home/volumes",
 }

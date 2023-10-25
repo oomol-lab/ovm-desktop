@@ -1,16 +1,24 @@
 import type { ConnectionClientService } from "@oomol/connection";
-import type { OVMService } from "@oomol-lab/ovm-service/common";
+import type {
+  ContainerInfo,
+  ImageInfo,
+  OVMService,
+} from "@oomol-lab/ovm-service/common";
 
 import { throttle } from "lodash-es";
+import { val } from "value-enhancer";
 
 export class OVMStore {
   private whenReady: Promise<void> | undefined;
+
+  public loading$ = val(true);
+  public images$ = val<ImageInfo[]>([]);
+  public containers$ = val<ContainerInfo[]>([]);
 
   public constructor(private ovmService: ConnectionClientService<OVMService>) {
     this.whenReady = new Promise(resolve => {
       const dispose = this.ovmService.on("ready", () => {
         resolve();
-        console.log("[OVM]: ready");
       });
 
       this.ovmService.invoke("isReady").then(ready => {
@@ -20,11 +28,35 @@ export class OVMStore {
         }
       });
     });
+    this.whenReady.then(() => {
+      this.loading$.set(false);
+    });
   }
 
   public async listContainers() {
     await this.whenReady;
-    return this.ovmService.invoke("listContainers");
+    const containers = await this.ovmService.invoke("listContainers");
+    if (containers) {
+      this.containers$.set(containers);
+    }
+  }
+
+  public async getContainer(id: string) {
+    await this.whenReady;
+    return this.ovmService.invoke("getContainer", id);
+  }
+
+  public async getContainerLog(id: string) {
+    await this.whenReady;
+    return this.ovmService.invoke("getContainerLog", id);
+  }
+
+  public async createContainer(
+    imageName: string,
+    containerName: string | undefined
+  ) {
+    await this.whenReady;
+    return this.ovmService.invoke("createContainer", imageName, containerName);
   }
 
   public async removeContainer(id: string) {
@@ -34,7 +66,10 @@ export class OVMStore {
 
   public async listImages() {
     await this.whenReady;
-    return this.ovmService.invoke("listImages");
+    const images = await this.ovmService.invoke("listImages");
+    if (images) {
+      this.images$.set(images);
+    }
   }
 
   public async removeImage(name: string, force?: boolean) {
@@ -56,6 +91,10 @@ export class OVMStore {
     await this.whenReady;
     return this.ovmService.invoke("searchImages", term);
   }, 1000);
+
+  public getImage(name: string) {
+    return this.ovmService.invoke("getImage", name);
+  }
 
   public pullImage(name: string) {
     return this.ovmService.invoke("pullImage", name);

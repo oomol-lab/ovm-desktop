@@ -4,18 +4,21 @@ import type { RouteOutletContext } from "../typings";
 import type { Val } from "value-enhancer";
 
 import { GithubOutlined } from "@ant-design/icons";
-import { Button } from "antd";
+import { Button, Spin } from "antd";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { useVal } from "use-value-enhancer";
 import { val } from "value-enhancer";
 import { OS } from "~/constants";
-import { useOS } from "~/hooks";
+import { useAppContext, useOS } from "~/hooks";
 
 import { HomeRootTitleBar } from "./HomeRootTitleBar";
 import { SideNav } from "./SideNav";
 
 export const HomeRoot = () => {
   const os = useOS();
+  const { ovmStore } = useAppContext();
+  const loading = useVal(ovmStore.loading$);
   const [titleBar$] = useState<Val<React.ReactNode>>(val);
 
   const outletContext: RouteOutletContext = titleBar$.set;
@@ -69,7 +72,9 @@ export const HomeRoot = () => {
           <HomeRootTitleBar titleBar$={titleBar$} />
         </div>
         <div className={styles.content}>
-          <Outlet context={outletContext} />
+          <Spin spinning={loading} tip="starting...">
+            <Outlet context={outletContext} />
+          </Spin>
         </div>
       </div>
     </div>

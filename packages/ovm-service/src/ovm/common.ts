@@ -14,6 +14,7 @@ export type ImageInfo = {
   id: string;
   created: string;
   size: number;
+  name: string;
   tags: string[];
 };
 
@@ -42,9 +43,16 @@ export type OVMService = DefineService<{
   invokes: {
     isReady: () => boolean;
     listContainers: () => Promise<ContainerInfo[] | undefined>;
+    getContainer: (id: string) => Promise<ContainerInfo | undefined>;
+    getContainerLog: (id: string) => Promise<string | undefined> | undefined;
+    createContainer: (
+      imageName: string,
+      containerName: string | undefined
+    ) => Promise<string | undefined>;
     removeContainer: (id: string) => Promise<void>;
 
     listImages: () => Promise<ImageInfo[] | undefined>;
+    getImage: (name: string) => Promise<ImageInfo | undefined>;
     removeImage: (name: string, force?: boolean) => Promise<void>;
     searchImages: (term: string) => Promise<SearchItem[] | undefined>;
     pullImage: (name: string) => void;

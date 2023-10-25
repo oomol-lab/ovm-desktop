@@ -11,25 +11,22 @@ import {
 } from "@ant-design/icons";
 import { Button, Divider, Input, Table } from "antd";
 import { useEffect, useState } from "react";
+import { Link, generatePath } from "react-router-dom";
+import { useVal } from "use-value-enhancer";
 import { useTranslate } from "val-i18n-react";
 
+import { RoutePath } from "../constants";
 import { useAppContext } from "../../hooks";
 
 export const Containers = () => {
   const { ovmStore } = useAppContext();
-  const [containers, setContainers] = useState<ContainerInfo[]>([]);
+  const containers = useVal(ovmStore.containers$);
   useEffect(() => {
-    ovmStore.listContainers().then(containers => {
-      console.log(containers);
-      if (containers) {
-        setContainers(containers);
-      }
-    });
+    ovmStore.listContainers();
   }, []);
   const removeContainer = async (id: string) => {
     await ovmStore.removeContainer(id);
-    const newContainers = containers.filter(container => container.id !== id);
-    setContainers(newContainers);
+    await ovmStore.listContainers();
   };
 
   const t = useTranslate();
@@ -37,6 +34,13 @@ export const Containers = () => {
     {
       title: t("page.name"),
       dataIndex: "name",
+      render: (name, record) => {
+        return (
+          <Link to={generatePath(RoutePath.ContainerDetail, { id: record.id })}>
+            {name}
+          </Link>
+        );
+      },
     },
     {
       title: t("page.image"),
@@ -107,3 +111,5 @@ export const Containers = () => {
     </div>
   );
 };
+
+export { ContainerDetail } from "./detail";

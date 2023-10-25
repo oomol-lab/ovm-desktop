@@ -4,7 +4,7 @@ import type { OVMStore } from "../../store";
 import type { SearchItem } from "@oomol-lab/ovm-service/common";
 import type { FC } from "react";
 
-import { Button, Input, List, Modal } from "antd";
+import { Button, Input, List, Modal, message } from "antd";
 import { useState } from "react";
 import { useTranslate } from "val-i18n-react";
 
@@ -29,7 +29,6 @@ export const ImageSearch: FC<ImageSearchProps> = ({ ovmStore }) => {
         if (images) {
           setItems(images);
         }
-        console.log(images);
       })
       .catch(_error => {
         setSearchLoading(false);
@@ -76,12 +75,15 @@ const PullImageButton: FC<ImageSearchProps & { name: string }> = ({
   ovmStore,
   name,
 }) => {
+  const t = useTranslate();
   const [loading, setLoading] = useState<boolean>(false);
 
   const pullImage = (name: string) => {
     setLoading(true);
     ovmStore.pullImage(name).then(() => {
       setLoading(false);
+      ovmStore.listImages();
+      message.success(t("images.pull-image-success", { name }));
     });
   };
 
