@@ -13,7 +13,8 @@
     "search-image-holder": "搜索镜像"
   },
   "containers": {
-    "title": "容器"
+    "title": "容器",
+    "detail": "容器详情"
   },
   "images": {
     "title": "镜像",

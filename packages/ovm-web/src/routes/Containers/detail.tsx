@@ -7,11 +7,14 @@ import type { FC } from "react";
 import { Breadcrumb, Tabs } from "antd";
 import { useEffect, useState } from "react";
 import { generatePath, useParams } from "react-router-dom";
+import { useTranslate } from "val-i18n-react";
 
 import { RoutePath } from "../constants";
+import { shortId } from "../utils";
 import { useAppContext } from "../../hooks";
 
 export const ContainerDetail = () => {
+  const t = useTranslate();
   const { id } = useParams();
   const { ovmStore } = useAppContext();
   const [container, setContainer] = useState<ContainerInfo | null>(null);
@@ -34,11 +37,14 @@ export const ContainerDetail = () => {
     <div className={styles["detail-container"]}>
       <Breadcrumb
         items={[
-          { title: "Containers", path: generatePath(RoutePath.Containers) },
-          { title: "Container Detail" },
+          {
+            title: t("containers.title"),
+            path: generatePath(RoutePath.Containers),
+          },
+          { title: t("containers.detail") },
         ]}
       />
-      <p>Container {id}</p>
+      <p>Id {shortId(id)}</p>
       <p>Image {container?.image}</p>
       <Tabs
         defaultActiveKey="1"

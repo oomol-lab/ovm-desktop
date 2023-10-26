@@ -12,7 +12,8 @@
     "search-image-holder": "Search image"
   },
   "containers": {
-    "title": "Containers"
+    "title": "Containers",
+    "detail": "Container Detail"
   },
   "images": {
     "title": "Images",
