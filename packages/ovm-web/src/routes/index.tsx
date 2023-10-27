@@ -6,8 +6,8 @@ import type {
   SigninService,
   OVMService,
 } from "@oomol-lab/ovm-service/common";
-import type { ReadonlyVal } from "value-enhancer";
-import type { OSLiteral } from "~/constants";
+import type { ReadonlyVal, Val } from "value-enhancer";
+import type { Appearance, OSLiteral } from "~/constants";
 
 import { useMemo } from "react";
 import {
@@ -26,6 +26,7 @@ import { ConfigurationEnum, Settings } from "./Settings";
 
 export type AppContext = {
   os$: ReadonlyVal<OSLiteral>;
+  appearance$: Val<Appearance>;
   darkMode$: ReadonlyVal<boolean>;
   windowService?: ConnectionClientService<WindowService>;
   signinService: ConnectionClientService<SigninService>;
