@@ -112,6 +112,13 @@ export class OVMServiceImpl
     }
   }
 
+  public async inspectContainer(id: string) {
+    const container = await this.docker?.getContainer(id);
+    if (container) {
+      return container.inspect();
+    }
+  }
+
   public async removeContainer(id: string) {
     const container = this.docker?.getContainer(id);
     if (container) {

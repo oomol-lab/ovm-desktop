@@ -51,6 +51,13 @@ export class OVMStore {
     return this.ovmService.invoke("getContainerLog", id);
   }
 
+  public filterContainers(term: string) {
+    const filterContainers = this.containers$.value.filter(container =>
+      container.name.includes(term)
+    );
+    this.containers$.set(filterContainers);
+  }
+
   public async createContainer(
     imageName: string,
     containerName: string | undefined
@@ -71,6 +78,13 @@ export class OVMStore {
       this.images$.set(images);
     }
   }
+
+  public filterImages = (term: string) => {
+    const images = this.images$.value.filter(image =>
+      image.name.includes(term)
+    );
+    this.images$.set(images);
+  };
 
   public async removeImage(name: string, force?: boolean) {
     await this.whenReady;

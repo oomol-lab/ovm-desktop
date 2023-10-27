@@ -74,10 +74,18 @@ export const Containers = () => {
     },
   ];
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
     console.log("selectedRowKeys changed: ", newSelectedRowKeys);
     setSelectedRowKeys(newSelectedRowKeys);
   };
+  useEffect(() => {
+    if (searchTerm !== "") {
+      ovmStore.filterContainers(searchTerm);
+    } else {
+      ovmStore.listContainers();
+    }
+  }, [searchTerm]);
   const rowSelection = {
     selectedRowKeys,
     onChange: onSelectChange,
@@ -88,6 +96,7 @@ export const Containers = () => {
         <div>
           <Input
             prefix={<SearchOutlined />}
+            onChange={e => setSearchTerm(e.target.value)}
             placeholder={t("page.search-holder")}
             size="middle"
           />

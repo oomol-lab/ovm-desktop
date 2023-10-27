@@ -85,6 +85,15 @@ export const Images = () => {
   const t = useTranslate();
   const columns = createColumns(t, removeImage, open);
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
+  useEffect(() => {
+    if (searchTerm !== "") {
+      ovmStore.filterImages(searchTerm);
+    } else {
+      ovmStore.listImages();
+    }
+  }, [searchTerm]);
 
   const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
     console.log("selectedRowKeys changed: ", newSelectedRowKeys);
@@ -100,6 +109,7 @@ export const Images = () => {
         <div>
           <Input
             prefix={<SearchOutlined />}
+            onChange={e => setSearchTerm(e.target.value)}
             placeholder={t("page.search-holder")}
             size="middle"
           />
