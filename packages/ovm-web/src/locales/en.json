@@ -12,10 +12,16 @@
     "search-image-holder": "Search image"
   },
   "containers": {
-    "title": "Containers"
+    "title": "Containers",
+    "detail": "Container Detail"
   },
   "images": {
-    "title": "Images"
+    "title": "Images",
+    "basic": "Basic",
+    "advanced": "Advanced",
+    "container-name-holder": "Leave blank to generate a name",
+    "run-image-from": "Run Image from",
+    "pull-image-success": "Pull image {{name}} success"
   },
   "nav": {
     "containers": "Containers",

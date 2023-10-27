@@ -13,10 +13,16 @@
     "search-image-holder": "搜索镜像"
   },
   "containers": {
-    "title": "容器"
+    "title": "容器",
+    "detail": "容器详情"
   },
   "images": {
-    "title": "镜像"
+    "title": "镜像",
+    "basic": "基础",
+    "advanced": "高级",
+    "container-name-holder": "留空以生成随机名称",
+    "run-image-from": "运行 Image 来自于",
+    "pull-image-success": "拉取镜像 {{name}} 成功"
   },
   "nav": {
     "containers": "容器",

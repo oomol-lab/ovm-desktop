@@ -7,19 +7,21 @@ import type { TFunction } from "val-i18n";
 import {
   CaretRightOutlined,
   DeleteOutlined,
-  PlusCircleOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
 import { Button, Divider, Input, Table, message } from "antd";
 import { useEffect, useState } from "react";
+import { useVal } from "use-value-enhancer";
 import { useTranslate } from "val-i18n-react";
 
 import { ImageSearch } from "./search";
+import { useRunImageModal } from "./use-run-image";
 import { useAppContext } from "../../hooks";
 
 const createColumns = (
   t: TFunction,
-  removeImage: (id: string) => Promise<void>
+  removeImage: (id: string) => Promise<void>,
+  runImage: (id: string) => void
 ): ColumnsType<ImageInfo> => {
   return [
     {
@@ -42,7 +44,11 @@ const createColumns = (
       dataIndex: "actions",
       render: (_, image) => (
         <div>
-          <Button type="text" icon={<CaretRightOutlined />} />
+          <Button
+            type="text"
+            onClick={() => runImage(image.tags[0])}
+            icon={<CaretRightOutlined />}
+          />
           <Divider type="vertical" />
           <Button
             type="text"
@@ -57,13 +63,11 @@ const createColumns = (
 
 export const Images = () => {
   const { ovmStore } = useAppContext();
-  const [images, setImages] = useState<ImageInfo[]>([]);
+  const images = useVal(ovmStore.images$);
+  const { contextHolder, open } = useRunImageModal();
+
   useEffect(() => {
-    ovmStore.listImages().then(images => {
-      if (images) {
-        setImages(images);
-      }
-    });
+    ovmStore.listImages();
   }, []);
 
   const removeImage = async (id: string) => {
@@ -75,13 +79,21 @@ export const Images = () => {
       }
       return;
     }
-    const newImages = images.filter(image => image.id !== id);
-    setImages(newImages);
+    await ovmStore.listImages();
   };
 
   const t = useTranslate();
-  const columns = createColumns(t, removeImage);
+  const columns = createColumns(t, removeImage, open);
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
+  useEffect(() => {
+    if (searchTerm !== "") {
+      ovmStore.filterImages(searchTerm);
+    } else {
+      ovmStore.listImages();
+    }
+  }, [searchTerm]);
 
   const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
     console.log("selectedRowKeys changed: ", newSelectedRowKeys);
@@ -97,15 +109,16 @@ export const Images = () => {
         <div>
           <Input
             prefix={<SearchOutlined />}
+            onChange={e => setSearchTerm(e.target.value)}
             placeholder={t("page.search-holder")}
             size="middle"
           />
         </div>
         <div>
-          <Button icon={<PlusCircleOutlined />} type="primary">
+          {/* <Button icon={<PlusCircleOutlined />} type="primary">
             {t("page.create")}
           </Button>
-          &nbsp;
+          &nbsp; */}
           <ImageSearch ovmStore={ovmStore} />
         </div>
       </div>
@@ -119,6 +132,7 @@ export const Images = () => {
           scroll={{ y: "calc(100vh - 200px)" }}
         />
       </div>
+      {contextHolder}
     </div>
   );
 };

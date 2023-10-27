@@ -9,7 +9,7 @@ const run = async () => {
     targets: Platform.MAC.createTarget(),
     config: {
       appId: "ovm-desktop",
-      productName: "OVM-Desktop",
+      productName: "OVM",
       files: ["dist", "package.json"],
       asar: true,
       icon: "./icon/ovm.png",
