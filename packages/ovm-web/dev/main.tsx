@@ -55,6 +55,7 @@ gui.add(os$, "value", [OS.Mac, OS.Windows, OS.Linux]).name("os");
 
 const appContext: AppContext = {
   os$,
+  appearance$,
   darkMode$,
   getOoUpgrade: async () => {
     await new Promise(resolve => setTimeout(resolve, 2000));
