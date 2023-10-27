@@ -103,8 +103,8 @@ importers:
         specifier: ^0.54.1
         version: 0.54.3(postcss@8.4.29)(rollup@3.29.1)(vite@4.4.9)
       value-enhancer:
-        specifier: ^3.0.5
-        version: 3.0.5
+        specifier: ^3.1.1
+        version: 3.1.1
       vite:
         specifier: ^4.4.2
         version: 4.4.9(@types/node@18.17.16)(sass@1.67.0)
@@ -268,16 +268,16 @@ importers:
         version: 0.54.3(postcss@8.4.29)(rollup@3.29.1)(vite@4.4.9)
       use-value-enhancer:
         specifier: ^3.0.1
-        version: 3.0.1(react@18.2.0)(value-enhancer@3.0.5)
+        version: 3.0.1(react@18.2.0)(value-enhancer@3.1.1)
       val-i18n:
         specifier: ^0.1.6
-        version: 0.1.6(value-enhancer@3.0.5)
+        version: 0.1.6(value-enhancer@3.1.1)
       val-i18n-react:
         specifier: ^0.1.3
         version: 0.1.3(react@18.2.0)(val-i18n@0.1.6)
       value-enhancer:
-        specifier: ^3.0.5
-        version: 3.0.5
+        specifier: ^3.1.1
+        version: 3.1.1
       vite:
         specifier: ^4.4.2
         version: 4.4.9(@types/node@18.17.16)(sass@1.67.0)
@@ -12956,14 +12956,14 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
-  /use-value-enhancer@3.0.1(react@18.2.0)(value-enhancer@3.0.5):
+  /use-value-enhancer@3.0.1(react@18.2.0)(value-enhancer@3.1.1):
     resolution: {integrity: sha512-AZMcCVta5TQPg2PXyS3k7RjVjclr9AnF8BAsFx64EZjioOQU0Ji+SO5CTJH3unnM6zZGmwRSAlnaJnge9HFZTg==}
     peerDependencies:
       react: '>=16'
       value-enhancer: 3.x
     dependencies:
       react: 18.2.0
-      value-enhancer: 3.0.5
+      value-enhancer: 3.1.1
     dev: true
 
   /utf8-byte-length@1.0.4:
@@ -13009,15 +13009,15 @@ packages:
       val-i18n: '0'
     dependencies:
       react: 18.2.0
-      val-i18n: 0.1.6(value-enhancer@3.0.5)
+      val-i18n: 0.1.6(value-enhancer@3.1.1)
     dev: true
 
-  /val-i18n@0.1.6(value-enhancer@3.0.5):
+  /val-i18n@0.1.6(value-enhancer@3.1.1):
     resolution: {integrity: sha512-I1nu63L27KiUZuB2eG41duYo9KXbFTshxnT4ulOBjNFd3QFqBfAheYKC5ok147myy/ne1tyWTxZTtQ/2swvRGA==}
     peerDependencies:
       value-enhancer: '>=2 <=3'
     dependencies:
-      value-enhancer: 3.0.5
+      value-enhancer: 3.1.1
     dev: true
 
   /validate-npm-package-license@3.0.4:
@@ -13032,8 +13032,8 @@ packages:
     engines: {node: '>= 0.10'}
     dev: true
 
-  /value-enhancer@3.0.5:
-    resolution: {integrity: sha512-0p45SEuGqCK+/YPoufeXCGvVw84+/V96mB6krkvNQDDGW8jLFI/Pn1kcPWmz21EvoCfx2+B66cRs2kdbuOJ2OQ==}
+  /value-enhancer@3.1.1:
+    resolution: {integrity: sha512-a651fgUr6m7sn8T9G8RaZZIA6x4BufoZkLWk5bCOgcbwjE7Hm00zMLvFXJXo7rf/PMjMvkoF4+EfBl8eBJWX/w==}
     dev: true
 
   /vary@1.1.2:
