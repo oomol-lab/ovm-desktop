@@ -2,6 +2,7 @@
  * @fileOverview For vite dev.
  */
 import type { AppContext } from "../src/main";
+import type { WindowStatus } from "@oomol-lab/ovm-service/common";
 import type { ReadonlyVal } from "value-enhancer";
 
 import { ConnectionClient } from "@oomol/connection";
@@ -14,6 +15,7 @@ import {
 import { GUI } from "lil-gui";
 import { createRoot } from "react-dom/client";
 import { from, unwrap, val } from "value-enhancer";
+import { WindowControls } from "~/components/WindowControls";
 
 import { StudioHome, Appearance, OS } from "../src/main";
 import { OVMStore } from "../src/store";
@@ -67,9 +69,14 @@ const appContext: AppContext = {
 setupGUIPersistence(gui);
 
 const root = createRoot(document.getElementById("root")!);
+const onClickWin11SystemBtn = (args: WindowStatus) => {
+  windowService?.send("updateWindowStatus", args);
+};
+
 root.render(
   <StudioHome appContext={appContext} localeLang$={localeLang$}>
     <ControlPanel gui={gui} />
+    <WindowControls onClickWin11SystemBtn={onClickWin11SystemBtn} />
   </StudioHome>
 );
 
