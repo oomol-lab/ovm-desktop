@@ -89,6 +89,7 @@
     "tsup": "^7.2.0"
   },
   "dependencies": {
+    "@oomol-lab/ovm": "^0.0.3",
     "dayjs": "^1.11.9",
     "dockerode": "^4.0.0"
   }
