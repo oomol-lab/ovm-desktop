@@ -1,9 +1,81 @@
-# OVM desktop
+<p align="center">
+    <img width="94" height="94" style="display: block;" src="./assets/logo.svg">
+</p>
 
-OVM desktop is a fast, lightweight, and easy-to-use application for running Docker containers. Use our Docker Desktop alternative to develop quickly.
+<div align="center">
+    <h1>OVM desktop</h1>
+    <p>OVM is a fast, lightweight, and easy-to-use application for running Docker containers. Use our Docker Desktop alternative to develop quickly.</p>
+</div>
 
-## UI
+<div align="center">
+    <h1>OVM</h1>
+    <p>Project OVM is the Windows and macOS client of OVM</p>
+    <img src="./assets/ovm_showcase.jpg">
+</div>
 
-<!-- image -->
+## Features
 
-![logo](./assets/logo.svg)
+## Quickstart
+
+### Installation
+
+> If you don't have pnpm installed:
+>
+> ```bash
+> npm i -g pnpm
+> ```
+
+Clone or fork this project, at project root run:
+
+```bash
+pnpm i
+```
+
+### Build and run OVM Electron client
+
+Run the following commands at the root of the repository to build and run OVM Electron client.
+
+```shell
+pnpm start
+```
+
+You can use one of the following methods to package your executable:
+
+- Run `pnpm ship` at project root to package based on current system.
+- Alternatively, run `pnpm ship:mac` or `pnpm ship:win` at project root to package for a specified system.
+
+### Build and run OVM Web client
+
+Run the following command at the root of the repository to build and run OVM web client.
+
+```shell
+pnpm start:web
+```
+
+Alternatively, run the following command:
+
+```shell
+cd ./web/ovm-web/ && pnpm start
+```
+
+UI and business logic are separated in OVM. You can view and develop OVM components UI via Storybook. You can either visit the ([Online address][ovm-storybook]) or run `pnpm storybook` at the root of the repository to run Storybook locally.
+
+## References
+
+## Related Projects
+
+## Contributing
+
+## Code Contributors
+
+Thank you to all the people who already contributed to OVM!
+
+## Disclaimer
+
+## License
+
+Copyright © OOMOL Corporation. All rights reserved.
+
+Licensed under the [MIT license](LICENSE).
+
+When using the OVM or other GitHub logos, be sure to follow the [GitHub logo guidelines][github-logo].
