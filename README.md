@@ -1,13 +1,9 @@
-# ovm desktop
+# OVM desktop
 
-ovm desktop Window.
+OVM desktop is a fast, lightweight, and easy-to-use application for running Docker containers. Use our Docker Desktop alternative to develop quickly.
 
-## 安装
+## UI
 
-```bash
-pnpm i
-```
+<!-- image -->
 
-## 依赖仓库问题
-
-依赖部分 @oomol 组织的仓库，暂时没有发布到 npm 仓库中，由于 github npm registry 的限制，无法授权给跨组织的 repo，因此 CI 中的 github token 无法直接拉取 oomol 组织的仓库。
+![logo](./assets/logo.svg)
