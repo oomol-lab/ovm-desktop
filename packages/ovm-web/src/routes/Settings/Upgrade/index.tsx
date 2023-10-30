@@ -51,7 +51,7 @@ export const Upgrade = () => {
         <div className={styles["about-img-box"]}>
           <img src={logo} />
         </div>
-        <div className={styles["about-name"]}>OOMOL STUDIO</div>
+        <div className={styles["about-name"]}>OVM</div>
         <div className={styles["about-update"]}>
           <div className={styles.version}>
             <span>{t("settings.version")}</span>: {upgradeData.version}
@@ -66,7 +66,7 @@ export const Upgrade = () => {
           </Checkbox>
         </div>
         <div className={styles.title}>
-          <span>{t("settings.version-about")}</span> OOMOL STUDIO
+          <span>{t("settings.version-about")}</span> OVM
           <span> {upgradeData.version}</span>
         </div>
         <div className={styles.link}>
