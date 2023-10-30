@@ -3,9 +3,8 @@ import styles from "./Preferences.module.scss";
 import type { RadioChangeEvent } from "antd";
 
 import { Radio } from "antd";
-import { useState } from "react";
 import { useVal } from "use-value-enhancer";
-import { useTranslate } from "val-i18n-react";
+import { useI18n, useLang, useTranslate } from "val-i18n-react";
 import { Appearance } from "~/constants";
 import { useAppContext } from "~/hooks";
 
@@ -13,27 +12,17 @@ import autoSVG from "../images/auto.svg";
 import darkSVG from "../images/dark.svg";
 import lightSVG from "../images/light.svg";
 
-export enum LanguageEnum {
-  English = "en",
-  Chinese = "zh-CN",
-}
-
-export type PreferencesDataType = {
-  language: LanguageEnum;
-};
-
 export const Preferences = () => {
   const t = useTranslate();
   const { appearance$ } = useAppContext();
+  const i18n = useI18n();
+  const lang = useLang();
   const appearance = useVal(appearance$);
-  const [language, setLanguage] = useState<LanguageEnum>(LanguageEnum.English);
 
   const onLanguageChange = (e: RadioChangeEvent) => {
-    console.log("radio checked", e.target.value);
-    setLanguage(e.target.value as LanguageEnum);
+    i18n.switchLang(e.target.value);
   };
   const onAppearanceChange = (e: RadioChangeEvent) => {
-    console.log("radio checked", e.target.value);
     appearance$.set(e.target.value as Appearance);
   };
 
@@ -41,13 +30,9 @@ export const Preferences = () => {
     <div className={styles["preference-container"]}>
       <div className={styles.section}>
         <div className={styles["section-title"]}>{t("settings.language")}</div>
-        <Radio.Group
-          onChange={onLanguageChange}
-          defaultValue={language}
-          value={language}
-        >
-          <Radio value={LanguageEnum.English}>English</Radio>
-          <Radio value={LanguageEnum.Chinese}>中文</Radio>
+        <Radio.Group onChange={onLanguageChange} value={lang}>
+          <Radio value={"en"}>English</Radio>
+          <Radio value={"zh-CN"}>中文</Radio>
         </Radio.Group>
       </div>
       <div className={styles.section}>

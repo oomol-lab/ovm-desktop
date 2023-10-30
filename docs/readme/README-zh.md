@@ -4,35 +4,35 @@
 
 <div align="center">
     <h1>OVM Desktop</h1>
-    <p>OVM is a fast, lightweight, and easy-to-use application for running Docker containers. Use our Docker Desktop alternative to develop quickly.</p>
+    <p>OVM 是一个快速、轻量级且易于使用的应用程序，用于运行 Docker 容器。使用我们的 Docker 桌面替代方案可以快速进行开发。</p>
 </div>
 
 <div align="center">
-    <p>Project OVM is the Windows and macOS client of OVM</p>
+    <p>OVM 项目是 OVM 的 Windows 和 macOS 客户端。</p>
     <img src="./assets/ovm_showcase.jpg">
 </div>
 
-## Features
+## 特性
 
-## Quickstart
+## 快速上手
 
-### Installation
+### 安装
 
-> If you don't have pnpm installed:
+> 如果你还没有安装 `pnpm`：
 >
 > ```bash
 > npm i -g pnpm
 > ```
 
-Clone or fork this project, at project root run:
+Clone 或者 fork 这个项目，在根目录执行：
 
 ```bash
 pnpm i
 ```
 
-### Build and run OVM Electron client
+### 构建并运行 Flat Electron 客户端
 
-Run the following commands at the root of the repository to build and run OVM Electron client.
+在仓库根目录运行以下命令：
 
 ```shell
 pnpm start
