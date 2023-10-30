@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="94" height="94" style="display: block;" src="./assets/logo.svg">
+    <img width="94" height="94" style="display: block;" src="./../../assets/logo.svg">
 </p>
 
 <div align="center">
@@ -9,7 +9,7 @@
 
 <div align="center">
     <p>OVM 项目是 OVM 的 Windows 和 macOS 客户端。</p>
-    <img src="./assets/ovm_showcase.jpg">
+    <img src="../../assets/ovm-screen-dark.png">
 </div>
 
 ## 特性

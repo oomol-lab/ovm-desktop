@@ -9,7 +9,7 @@
 
 <div align="center">
     <p>Project OVM is the Windows and macOS client of OVM</p>
-    <img src="./assets/ovm_showcase.jpg">
+    <img src="./assets/ovm-screen-dark.png">
 </div>
 
 ## Features
