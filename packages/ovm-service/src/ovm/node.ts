@@ -32,7 +32,7 @@ export class OVMServiceImpl
 
     const ovm = await createDarwinOVM({
       originPath: {
-        gvproxy: path.join(resourcesDir, "gvproxy"),
+        gvproxy: path.join(resourcesDir, "gvproxy-arm64"),
         vfkit: path.join(resourcesDir, "vfkit-arm64"),
         kernel: path.join(resourcesDir, "Image"),
         initrd: path.join(resourcesDir, "initrd.gz"),

@@ -35,26 +35,25 @@ pnpm i
 Run the following commands at the root of the repository to build and run OVM Electron client.
 
 ```shell
-pnpm start
+pnpm dev:electron
 ```
 
 You can use one of the following methods to package your executable:
 
-- Run `pnpm ship` at project root to package based on current system.
-- Alternatively, run `pnpm ship:mac` or `pnpm ship:win` at project root to package for a specified system.
+- Run `pnpm run pack` at project root to package based on current system.
 
 ### Build and run OVM Web client
 
 Run the following command at the root of the repository to build and run OVM web client.
 
 ```shell
-pnpm start:web
+pnpm dev:web
 ```
 
 Alternatively, run the following command:
 
 ```shell
-cd ./web/ovm-web/ && pnpm start
+cd ./web/ovm-web/ && pnpm dev
 ```
 
 UI and business logic are separated in OVM. You can view and develop OVM components UI via Storybook. You can either visit the ([Online address][ovm-storybook]) or run `pnpm storybook` at the root of the repository to run Storybook locally.
